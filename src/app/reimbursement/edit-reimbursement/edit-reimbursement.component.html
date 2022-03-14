@@ -1,0 +1,59 @@
+<div class="container m-5">
+    <div class="card-header bg-secondary text-white">Update Request</div>
+    <form #myFormTemplate = "ngForm" (ngSubmit)="updateEmployee()">
+    <div  class="card-body">
+
+      
+        <div class="mb-3" >
+            <label for="employeeID" class="form-label">Employee ID:</label>
+           {{newEmployee.employeeID}}
+          </div>
+        <div class="mb-3" >
+          <label for="fullName" class="form-label">fullName</label>
+          <input 
+          type="text" 
+          class="form-control" 
+          id="fullName" placeholder="Enter fullName" 
+          name="fullName"
+          required
+          #fullName="ngModel"
+          (change)= "test(fullName)"
+          [(ngModel)]="newEmployee.fullName">
+          <div *ngIf="!fullName.valid" class="small text-danger">fullName is required!</div>
+        </div>
+        <div class="mb-3" >
+          <label for="email" class="form-label">email</label>
+          <input 
+          type="email" 
+          class="form-control" 
+          id="email" placeholder="Enter your email." 
+          name="email"
+          required
+          #myEmail="ngModel"
+          (change)= "test(myEmail)"
+          [(ngModel)]="newEmployee.email">
+          <div *ngIf="!myEmail.valid" class="small text-danger">Email is required!</div>
+        </div>
+        <div class="form-check mb-3">
+          <label for="phone" class="form-label">phone</label>
+          <input 
+          type="tel" 
+          class="form-control" 
+          id="phone" placeholder="Enter phone number." 
+          name="phone"
+          #myPhone="ngModel"
+          (change)= "test(myPhone)"
+          [(ngModel)]="newEmployee.phone">
+          <div *ngIf="!myPhone.valid" class="small text-danger">Phone Number </div>
+        </div>
+        
+      
+     
+
+    </div>
+    <div class="card-footer bg-secondary"><button
+        [disabled]="!myFormTemplate.valid" 
+        type="submit" 
+        class="btn btn-light" ></button>UPDATE</div>
+</form>
+</div>

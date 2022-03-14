@@ -1,0 +1,24 @@
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>phone</th>
+                <th>Job Title</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let e of allEmployees">
+                <td>{{e.employeeID}}</td>
+                <td>{{e.fullName}}</td>
+                <td>{{e.email}}</td>
+                <td>{{e.phone}}</td>
+                <td>{{e.jobTitle}}</td>
+                <td><button type="button" class="btn btn-primary" (click)="getEmployeeReimbursements(e.employeeID)">Get Reimbursements</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

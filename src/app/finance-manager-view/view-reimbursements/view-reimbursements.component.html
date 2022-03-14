@@ -1,0 +1,53 @@
+<div>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="getPendingReimbursements()"> get Pending</button>
+    <button type="button" class="btn btn-primary" (click)="getCompletedReimbursements()"> get Completed</button>
+    <button type="button" class="btn btn-primary" (click)="getAllReimbursements()"> get All</button>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>employee</th>
+                <th>status</th>
+                <th>merchant</th>
+                <th>expenseType</th>
+                <th>amount</th>
+                <th>details</th>
+                <th>latest comment</th>
+                <th>date of transaction</th>
+                <th>date submitted</th>
+                <th>last update</th>
+                <th>new Comment</th>
+                <th>Approve/Deny</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let rem of allReimbursements">
+                <td>{{rem.reimbursementID}}</td>
+                <td>{{rem.employee}}</td>
+                <td>{{rem.status}}</td>
+                <td>{{rem.merchant}}</td>
+                <td>{{rem.expenseType}}</td>
+                <td>{{rem.amount}}</td>
+                <td>{{rem.details}}</td>
+                <td>{{rem.currentComment}}</td>
+                <td>{{rem.dateOfTransaction}}</td>
+                <td>{{rem.dateSubmitted}}</td>
+                <td>{{rem.dateUpdated}}</td>
+                <td *ngIf = "rem.statusID < 4">
+                    <input type="text" id = "newComment" name = "newComment" [(ngModel)]="newComment[rem.reimbursementID]"/>
+                </td>
+                <!--will attach to the input later-->
+                <td *ngIf = "rem.statusID < 4">
+                    <button type="button" class="btn btn-success" (click)="updateReimbursement(rem,4,newComment[rem.reimbursementID])"><i class="material-icons">done</i></button>
+                    <button type="button" class="btn btn-danger" (click)="updateReimbursement(rem,5,newComment[rem.reimbursementID])"><i class="material-icons">close</i></button>
+                </td>
+                
+                <!-- To make the parts without buttons/commets look nice-->
+                <td *ngIf = "rem.statusID > 3"></td>
+                <td *ngIf = "rem.statusID > 3"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
