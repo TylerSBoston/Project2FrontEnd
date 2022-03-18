@@ -7,6 +7,14 @@ pipeline {
     agent any
     	
         stages {
+        stage ('clear')
+            steps{
+                // clears extra containers generated for angular
+                sh 'docker system prune'
+
+                echo 'clear stage'
+            }
+        
 
         stage('Clone') {
             steps {
