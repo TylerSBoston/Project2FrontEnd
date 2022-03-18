@@ -12,7 +12,8 @@ pipeline {
         stage ('clear'){
             steps{
                 // clears extra containers generated for angular
-                sh 'docker system prune y'
+                sh 'docker system prune'
+                sh 'y'
 
                 sh "npm install"
                 echo 'clear stage'
