@@ -1,7 +1,9 @@
 
 
 FROM node:latest as build
-#RUN npm install
+WORKDIR /app
+COPY ./ /app
+RUN npm install
 RUN npm run build
 RUN npm run start
 RUN ng serve
