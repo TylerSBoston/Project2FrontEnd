@@ -37,7 +37,7 @@ pipeline {
                	
                	sh "docker-compose down"
                	
-                sh "sh docker image rm -f nginx"
+                sh "sh sudo docker image rm --force nginx"
                	sh "docker-compose up"
             }
         }
