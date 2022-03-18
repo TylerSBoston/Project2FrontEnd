@@ -6,7 +6,7 @@ milestone(buildNumber)
 pipeline {
     agent any
 
-      //  tools {nodejs "815Node"}
+        tools {nodejs "node"}
     	
         stages {
         stage ('clear'){
