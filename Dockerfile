@@ -1,8 +1,8 @@
 
 
 FROM node:latest as build
-RUN npm install
-RUN npm run build
+#RUN npm install
+#RUN npm run build
 RUN npm run start
 RUN ng serve
 EXPOSE 4200
