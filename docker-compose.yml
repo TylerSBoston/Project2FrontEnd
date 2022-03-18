@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  project2-frontend:
+    image: project2-frontend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:80
