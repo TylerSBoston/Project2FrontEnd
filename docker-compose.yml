@@ -2,8 +2,7 @@ version: '3'
 services:
   project2-frontend:
     image: project2-frontend
-    build:
-      context: .
+    build: .
     ports:
       - 3000:80
       - 4200:4200

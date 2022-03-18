@@ -5,6 +5,8 @@ milestone(buildNumber)
 
 pipeline {
     agent any
+
+        tools {nodejs "815Node"}
     	
         stages {
         stage ('clear'){
@@ -12,6 +14,7 @@ pipeline {
                 // clears extra containers generated for angular
                 sh 'docker system prune'
 
+                sh "npm install"
                 echo 'clear stage'
             }
         
@@ -27,6 +30,7 @@ pipeline {
         stage('Build') {
             steps {
 
+                sh "node_modules/.bin/ng build --prod"
                 echo 'build step'
             }
         }
