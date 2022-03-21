@@ -29,7 +29,7 @@ export class EmployeeHttpService {
 
   async login(employee: Employee): Promise<Observable<Employee>>{
 
-    return await this.http.post<Employee>("http://ip-172-31-13-88.us-east-2.compute.internal:9999/login",await JSON.stringify(await employee));
+    return await this.http.post<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/login",await JSON.stringify(await employee));
   }
 
   async validateLogin(newEmployee: Employee): Promise<Employee>{
