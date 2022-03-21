@@ -13,7 +13,9 @@ pipeline {
             steps{
                 // clears extra containers generated for angular
                 sh 'docker system prune -f'
-
+                // not sure if i need to keep replacing the nginx server or not
+                sh 'docker rm -f nginx'
+                sh 'docker rm -f project2-frontend'
                 echo 'clear stage'
             }
         
