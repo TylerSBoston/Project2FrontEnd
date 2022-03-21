@@ -17,32 +17,32 @@ export class ManagerHttpService {
   getPendingReimbursements(): Observable<Reimbursement[]>{
 
 
-    return this.http.get<Reimbursement[]>("ip-172-31-13-88.us-east-2.compute.internal:9999/requests-pending")
+    return this.http.get<Reimbursement[]>("http://ip-172-31-13-88.us-east-2.compute.internal:9999/requests-pending")
 
   }
 
   getCompletedReimbursements():  Observable<Reimbursement[]>{
-    return this.http.get<Reimbursement[]>("ip-172-31-13-88.us-east-2.compute.internal:9999/requests-resolved")
+    return this.http.get<Reimbursement[]>("http://ip-172-31-13-88.us-east-2.compute.internal:9999/requests-resolved")
   }
 
   getAllReimbursements():  Observable<Reimbursement[]>{
-    return this.http.get<Reimbursement[]>("ip-172-31-13-88.us-east-2.compute.internal:9999/requests-all")
+    return this.http.get<Reimbursement[]>("http://ip-172-31-13-88.us-east-2.compute.internal:9999/requests-all")
   }
   getEmployeeReimbursements(employeeID: number): Observable<Reimbursement[]>{
-    return this.http.get<Reimbursement[]>("ip-172-31-13-88.us-east-2.compute.internal:9999/requests-employee/"+employeeID)
+    return this.http.get<Reimbursement[]>("http://ip-172-31-13-88.us-east-2.compute.internal:9999/requests-employee/"+employeeID)
   }
   
   getAllEmployees(): Observable<Employee[]>{
 
 
-    return this.http.get<Employee[]>("ip-172-31-13-88.us-east-2.compute.internal:9999/all-employees-manager-view")
+    return this.http.get<Employee[]>("http://ip-172-31-13-88.us-east-2.compute.internal:9999/all-employees-manager-view")
 
   }
 
   updateReimbursement(reimbursement: Reimbursement): Observable<Reimbursement>{
 
     //backend technicly uses an update and insert.
-    return this.http.post<Reimbursement>("ip-172-31-13-88.us-east-2.compute.internal:9999/update-request",JSON.stringify(reimbursement))
+    return this.http.post<Reimbursement>("http://ip-172-31-13-88.us-east-2.compute.internal:9999/update-request",JSON.stringify(reimbursement))
   }
 
 
