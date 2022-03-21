@@ -1,5 +1,12 @@
+FROM node:latest as build
+WORKDIR /usr/local/app
+COPY ./ /usr/local/app/
+RUN npm install
+RUN npm run build
+
+
+
 FROM nginx:latest
-COPY ./dist/ /var/www
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 3000 80
+COPY --from=build /usr/local/app/dist/project2 /usr/share/nginx/html
+EXPOSE 80
 

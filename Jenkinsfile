@@ -14,7 +14,6 @@ pipeline {
                 // clears extra containers generated for angular
                 sh 'docker system prune -f'
 
-                sh "npm install"
                 echo 'clear stage'
             }
         
@@ -30,7 +29,6 @@ pipeline {
         stage('Build') {
             steps {
 
-                sh "node_modules/.bin/ng build --prod"
                 echo 'build step'
             }
         }
