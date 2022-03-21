@@ -10,7 +10,6 @@ export interface Reimbursement{
     details: string,            // Info about reimbursement, 
     currentComment: string,     // most recent comment usually about a update or approval/denail
     dateOfTransaction: string,
-    dateSubmitted: string,
-    dateUpdated: string        // date of most recent update, including if resolved
+    dateSubmitted: string      // date of most recent update, including if resolved
 
 }

@@ -9,7 +9,6 @@ export interface Employee{
     lastName: string ;
     phone: string;
     userName: string;
-    fullName: string;
     jobTitle: string;
     roles: Role[];
 }
