@@ -15,7 +15,6 @@ export class EmployeeHttpService {
     firstName: '',
     lastName: '',
     userName: '',
-    fullName: '',
     jobTitle: '',
     email: '',
     phone: '',
@@ -30,7 +29,7 @@ export class EmployeeHttpService {
 
   async login(employee: Employee): Promise<Observable<Employee>>{
 
-    return await this.http.post<Employee>("http://localhost:4040/Login",await JSON.stringify(await employee));
+    return await this.http.post<Employee>("http://ip-172-31-13-88.us-east-2.compute.internal:3000/login",await JSON.stringify(await employee));
   }
 
   async validateLogin(newEmployee: Employee): Promise<Employee>{
@@ -67,7 +66,6 @@ export class EmployeeHttpService {
         firstName: '',
         lastName: '',
         userName: '',
-        fullName: '',
         jobTitle: '',
         email: '',
         phone: '',
