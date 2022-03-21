@@ -15,7 +15,7 @@
               class="form-control" 
               id="fullName" placeholder="Enter your Name" 
               name="fullName"
-              [(ngModel)]="newEmployee.fullName">
+              [(ngModel)]="newEmployee.firstName">
             </div>
             <div class="mb-3" >
               <label for="lastName" class="form-label">Last Name</label>
@@ -68,7 +68,7 @@
         <tbody>
           <tr *ngFor = "let employee of allEmployees" > 
             <td>{{employee.employeeID}}</td>
-            <td>{{employee.fullName}}</td>
+            <td>{{employee.firstName}}</td>
             <td>{{employee.lastName}}</td>
             <td>{{employee.email}}</td>
             <td>{{employee.phone}}</td>

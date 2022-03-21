@@ -16,7 +16,6 @@
                 <th>latest comment</th>
                 <th>date of transaction</th>
                 <th>date submitted</th>
-                <th>last update</th>
                 <th>new Comment</th>
                 <th>Approve/Deny</th>
             </tr>
@@ -33,7 +32,6 @@
                 <td>{{rem.currentComment}}</td>
                 <td>{{rem.dateOfTransaction}}</td>
                 <td>{{rem.dateSubmitted}}</td>
-                <td>{{rem.dateUpdated}}</td>
                 <td *ngIf = "rem.statusID < 4">
                     <input type="text" id = "newComment" name = "newComment" [(ngModel)]="newComment[rem.reimbursementID]"/>
                 </td>

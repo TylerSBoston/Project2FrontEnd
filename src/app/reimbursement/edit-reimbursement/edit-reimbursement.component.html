@@ -9,17 +9,18 @@
            {{newEmployee.employeeID}}
           </div>
         <div class="mb-3" >
-          <label for="fullName" class="form-label">fullName</label>
+          <label for="firstName" class="form-label">firstName</label>
+          <!-- Currently not letting  me change full to first name in places-->
           <input 
           type="text" 
           class="form-control" 
-          id="fullName" placeholder="Enter fullName" 
-          name="fullName"
+          id="firstName" placeholder="Enter firstName" 
+          name="firstName"
           required
           #fullName="ngModel"
-          (change)= "test(fullName)"
-          [(ngModel)]="newEmployee.fullName">
-          <div *ngIf="!fullName.valid" class="small text-danger">fullName is required!</div>
+          (change)= "test(fullName)" 
+          [(ngModel)]="newEmployee.firstName">
+          <div *ngIf="!fullName.valid" class="small text-danger">firstName is required!</div>
         </div>
         <div class="mb-3" >
           <label for="email" class="form-label">email</label>

@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
     lastName: '',
     userName: '',
     phone: '',
-    fullName: '',
     jobTitle: '',
     roles: []
   }

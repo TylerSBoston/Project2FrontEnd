@@ -28,7 +28,6 @@ export class ViewReimbursementsComponent implements OnInit {
     currentComment: '',
     dateOfTransaction: '',
     dateSubmitted: '',
-    dateUpdated: ''
   }
 
   constructor(private  MHRS:ManagerHttpService, private router: Router) { }
