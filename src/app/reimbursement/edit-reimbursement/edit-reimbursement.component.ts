@@ -68,6 +68,14 @@ export class EditReimbursementComponent implements OnInit {
       this.router.navigate(['list-reimbursement']);
 
     });
+  }
+    updateReimbursements(){
+      this.reimbursementService.updateReimbursement(this.newReimbursement).subscribe((response)=>{
+        console.log(response);
+  
+        this.router.navigate(['list-reimbursement']);
+  
+      });
     
 
   }

@@ -14,30 +14,30 @@ export class ReimbursementService {
 //working with http client, manually include HttpClientMOdule int app.module.ts
 constructor(private http: HttpClient) { }
 
-// fetchAllEmployees(): Observable<Employee[]>{
-//   return this.http.get<[]>("http://localhost:4040/AllEmployees");
-// }
+fetchAllEmployees(): Observable<Employee[]>{
+  return this.http.get<[]>("http://localhost:4040/AllEmployees");
+}
 
-// deleteEmployee(employeeID: number): Observable<Employee>{
-//   return this.http.delete<Employee>("http://localhost:4040/DeleteEmployees/{bid}S"+employeeID);
+deleteEmployee(employeeID: number): Observable<Employee>{
+  return this.http.delete<Employee>("http://localhost:4040/DeleteEmployees/{bid}S"+employeeID);
  
-// }
+}
 
-// addEmployee(employeeModel: Employee): Observable<Employee>{
+addEmployee(employeeModel: Employee): Observable<Employee>{
 
-//   return this.http.post<Employee>("http://localhost:4040/AddEmployees", JSON.stringify(employeeModel));
+  return this.http.post<Employee>("http://localhost:4040/AddEmployees", JSON.stringify(employeeModel));
 
 
-// }
+}
 
 updateEmployee(employeeModel: Employee): Observable<Employee> {
   return this.http.put<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements", JSON.stringify(employeeModel));
  
 }
 
-// fetchAEmployee(employeeId: number): Observable<Employee> {
-//   return this.http.get<Employee>("http://localhost:4040/AllEmployees/{bid}"+employeeId);
-// }
+fetchAEmployee(employeeId: number): Observable<Employee> {
+  return this.http.get<Employee>("http://localhost:4040/AllEmployees/{bid}"+employeeId);
+}
 
 
 // 

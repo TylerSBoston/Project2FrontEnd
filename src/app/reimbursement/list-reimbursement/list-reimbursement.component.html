@@ -1,78 +1,96 @@
 <div>
-    <h3>Reimbursement Requests</h3>
+    <h3>Employee Home</h3>
     <div>
       <button type="button" class="btn btn-success" (click)="toggleAddForm()">Submit Request</button>
       <div class="card m-5" *ngIf="toggleAdd">
-        <div class="card-header bg-success text-white">Submit Request</div>
+        <div class="card-header bg-success text-white">Update</div>
         <div  class="card-body">
 
           <form>
            
             <div class="mb-3" >
-              <label for="fullName" class="form-label">Enter Name</label>
+              <label for="dateSubmitted" class="form-label">Enter Date</label>
               <input 
               type="text" 
               class="form-control" 
-              id="fullName" placeholder="Enter your Name" 
-              name="fullName"
-              [(ngModel)]="newEmployee.firstName">
+              id="dateSubmitted" placeholder="Enter Date" 
+              name="dateSubmitted"
+              [(ngModel)]="newReimbursement.dateSubmitted">
             </div>
             <div class="mb-3" >
-              <label for="lastName" class="form-label">Last Name</label>
+              <label for="dateOfTransaction" class="form-label">Date OF Transaction</label>
               <input 
               type="text" 
               class="form-control" 
-              id="lastName" placeholder="Enter your Last Name" 
-              name="lastName"
-              [(ngModel)]="newEmployee.lastName">
+              id="dateOfTransaction" placeholder="dateOfTransaction" 
+              name="dateOfTransaction"
+              [(ngModel)]="newReimbursement.dateOfTransaction">
             </div>
             <div class="form-check mb-3">
-              <label for="email" class="form-label"> Email</label>
+              <label for="employeeID" class="form-label"> employeeID</label>
               <input 
-              type="email" 
+              type="text" 
               class="form-control" 
-              id="email" placeholder="Enter your email." 
-              name="email"
-              [(ngModel)]="newEmployee.email">
+              id="employeeID" placeholder="employeeID." 
+              name="employeeID"
+              [(ngModel)]="newReimbursement.employeeID">
             </div>
             <div class="form-check mb-3">
-              <label for="phone" class="form-label">phone</label>
+              <label for="amount" class="form-label">amount</label>
               <input 
-              type="tel" 
+              type="text" 
               class="form-control" 
-              id="phone" placeholder="Phone Number" 
-              name="phone"
-              [(ngModel)]="newEmployee.phone">
+              id="amount" placeholder="amount" 
+              name="amount"
+              [(ngModel)]="newReimbursement.amount">
             </div>
-           
-          
-          </form>
+            <div class="form-check mb-3">
+              <label for="merchant" class="form-label">merchant</label>
+              <input 
+              type="text" 
+              class="form-control" 
+              id="merchant" placeholder="merchant" 
+              name="merchant"
+              [(ngModel)]="newReimbursement.merchant">
+            </div>
+            <div class="form-check mb-3">
+              <label for="status" class="form-label">status</label>
+              <input 
+              type="text" 
+              class="form-control" 
+              id="status" placeholder="status" 
+              name="status"
+              [(ngModel)]="newReimbursement.status">
+            </div>
 
-        </div>
-        <div class="card-footer bg-success"><button type="button" class="btn btn-light" (click)="addEmployee()">SUBMIT</button></div>
+          </form>
+        <div class="card-footer bg-success"><button type="button" class="btn btn-light" (click)="addReimbursement()">SUBMIT</button></div>
       </div>
     </div>
+
+
     <table class="table table-striped">
         <thead>
           <tr>
-            <th>EmployeeId</th>
-            <th>fullName</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Phone</th>
+            <th>ReimbursementId</th>
+            <th>Date Submitted</th>
+            <th>Date Of Transaction</th>
+            <th>employeeID</th>
+            <th>Amount</th>
+            <th>merchant</th>
+            <th>status</th>
             <th>Edit</th>
-            <th>Delete</th>
 
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor = "let employee of allEmployees" > 
+          <!-- <tr *ngFor = "let employee of allEmployees" > 
             <td>{{employee.employeeID}}</td>
             <td>{{employee.firstName}}</td>
             <td>{{employee.lastName}}</td>
             <td>{{employee.email}}</td>
-            <td>{{employee.phone}}</td>
-          <!-- <tr *ngFor = "let reimbursement of allReimbursements" > 
+            <td>{{employee.phone}}</td> -->
+          <tr *ngFor = "let reimbursement of allReimbursements" > 
               <td>{{reimbursement.reimbursementID}}</td>
               <td>{{reimbursement.dateSubmitted}}</td>
               <td>{{reimbursement.dateOfTransaction}}</td>
@@ -80,22 +98,22 @@
               <td>{{reimbursement.amount}}</td>
               <td>{{reimbursement.merchant}}</td>
               <td>{{reimbursement.status}}</td>
-              <td>{{reimbursement.dateUpdated}}</td> -->
+            
    
               
               <td><button 
                 type="button" 
                 class="btn btn-primary"
-                (click)="goToEditReimbursement(newEmployee.employeeID)">
+                (click)="goToEditReimbursement(newReimbursement.employeeID)">
                 <i class="material-icons">edit</i>
               </button></td>
 
             
-              <td><button 
+              <!-- <td><button 
                 type="button" 
                 class="btn btn-danger" 
                 (click)="deleteEmployee(newEmployee.employeeID)"
-              ><i class="material-icons">delete</i></button></td>
+              ><i class="material-icons">delete</i></button></td> -->
 
               
           

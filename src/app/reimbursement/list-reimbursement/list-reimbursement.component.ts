@@ -96,6 +96,15 @@ export class ListReimbursementComponent implements OnInit {
       this.allEmployees = response;
 
     });
+
+    this.loadReimbursements();}
+
+    loadReimbursements(){
+    this.reimbursementService.fetchAllReimbursements().subscribe((response)=>{
+      console.log(response);
+      this.allReimbursements = response;
+
+    });
     
   }
 
@@ -118,6 +127,14 @@ export class ListReimbursementComponent implements OnInit {
     this.reimbursementService.updateEmployee(this.oneEmployee).subscribe((response)=>{
       console.log(response)
       this.loadEmployees();
+
+    });
+  }
+
+  updateReimbursement(){
+    this.reimbursementService.updateReimbursement(this.oneReimbursement).subscribe((response)=>{
+      console.log(response)
+      this.loadReimbursements();
 
     });
   }
