@@ -3,10 +3,10 @@ import { Role } from "./role.model";
 
 export interface Employee{
     employeeId: number;
-    email: string ;
-    password: string ;
     firstName: string ;
     lastName: string ;
+    email: string ;
+    password: string ;
     phone: string;
     userName: string;
     jobTitle: string;
