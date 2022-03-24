@@ -57,20 +57,9 @@ export class ManagerHttpService {
   }
 
   getImage(imageUrl: string): Observable<Blob> {
-    return this.http.get("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/images/1", { responseType: 'blob' });
+    return this.http.get(imageUrl, { responseType: 'blob' });
   }
 
 
-    imageToShow: any;
 
-  createImageFromBlob(image: Blob) {
-    let reader = new FileReader();
-    reader.addEventListener("load", () => {
-        this.imageToShow = reader.result;
-    }, false);
-
-    if (image) {
-        reader.readAsDataURL(image);
-    }
-  }
 }

@@ -1,9 +1,9 @@
 <div>
-    <img [src]="imageToShow"
+    <img src="images/1"
      alt="Place image title"
      *ngIf="!isImageLoading; else noImageFound">
 <ng-template #noImageFound>
-     <img src="fallbackImage.png" alt="Fallbackimage">
+     <img src="images/1">
 </ng-template>
     
 

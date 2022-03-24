@@ -14,7 +14,6 @@ export class FinanceManagerComponent implements OnInit {
 
   isImageLoading: boolean = true;
   imageToShow: any;
-
   ngOnInit(): void {
   }
 
@@ -22,13 +21,26 @@ export class FinanceManagerComponent implements OnInit {
   getImageFromService() {
     this.isImageLoading = true;
     this.MHRS.getImage("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/images/1").subscribe(data => {
-      this.MHRS.createImageFromBlob(data);
+      this.createImageFromBlob(data);
       this.isImageLoading = false;
     }, error => {
       this.isImageLoading = false;
       console.log(error);
     });
   }
+  
+
+  createImageFromBlob(image: Blob) {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+        this.imageToShow = reader.result;
+    }, false);
+
+    if (image) {
+        reader.readAsDataURL(image);
+    }
+  }
+
 
 
 }
