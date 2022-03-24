@@ -13,7 +13,6 @@ import { ViewEmployeesComponent } from './finance-manager-view/view-employees/vi
 import { ViewReimbursementsComponent } from './finance-manager-view/view-reimbursements/view-reimbursements.component';
 import { FinanceManagerComponent } from './finance-manager-view/finance-manager/finance-manager.component';
 import { HttpClientModule } from '@angular/common/http';
-import {formsModule} from '@angular/forms';
 
 
 
