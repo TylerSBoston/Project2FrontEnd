@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
@@ -29,7 +29,13 @@ export class EmployeeHttpService {
 
   async login(employee: Employee): Promise<Observable<Employee>>{
 
-    return await this.http.post<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/login",await JSON.stringify(await employee));
+    const httpOptions = { 
+      headers: new HttpHeaders(
+        { 'Content-Type': 'application/json' }
+      ) 
+    };
+
+    return this.http.post<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:8080//login", JSON.stringify(employee),httpOptions);
   }
 
   async validateLogin(newEmployee: Employee): Promise<Employee>{
