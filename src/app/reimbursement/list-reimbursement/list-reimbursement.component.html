@@ -62,12 +62,108 @@
               name="status"
               [(ngModel)]="newReimbursement.status">
             </div>
+            <div class="card-footer bg-success"><button type="button" class="btn btn-light" (click)="addReimbursement()">SUBMIT</button></div>
 
           </form>
-        <div class="card-footer bg-success"><button type="button" class="btn btn-light" (click)="addReimbursement()">SUBMIT</button></div>
       </div>
     </div>
 
+    <div class="container m-5">
+      <div class="card-header bg-secondary text-white">Edit User</div>
+      <form #myFormTemplate = "ngForm" (ngSubmit)="updateEmployee()">
+      <div  class="card-body">
+  
+        
+          <div class="mb-3" >
+              <label for="employeeID" class="form-label">Employee ID:</label>
+             {{newEmployee.employeeID}}
+            </div>
+
+          <div class="mb-3" >
+            <label for="email" class="form-label">email</label>
+            <!-- Currently not letting  me change full to first name in places-->
+            <input 
+            type="email" 
+            class="form-control" 
+            id="email" placeholder="email" 
+            name="email"
+            required
+            #email="ngModel"
+            (change)= "test(email)" 
+            [(ngModel)]="newEmployee.email">
+            <div *ngIf="!email.valid" class="small text-danger">email!</div>
+          </div>
+
+          <div class="mb-3" >
+            <label for="password" class="form-label">password</label>
+            <!-- Currently not letting  me change full to first name in places-->
+            <input 
+            type="password" 
+            class="form-control" 
+            id="password" placeholder="password" 
+            name="password"
+            required
+            #password="ngModel"
+            (change)= "test(password)" 
+            [(ngModel)]="newEmployee.password">
+            <div *ngIf="!password.valid" class="small text-danger">password!</div>
+          </div>
+
+          <div class="mb-3" >
+            <label for="firstName" class="form-label">firstName</label>
+            <!-- Currently not letting  me change full to first name in places-->
+            <input 
+            type="text" 
+            class="form-control" 
+            id="firstName" placeholder="firstName" 
+            name="firstName"
+            required
+            #firstName="ngModel"
+            (change)= "test(firstName)" 
+            [(ngModel)]="newEmployee.firstName">
+            <div *ngIf="!firstName.valid" class="small text-danger">firstName!</div>
+          </div>
+
+          <div class="mb-3" >
+            <label for="lastName" class="form-label">lastName</label>
+            <!-- Currently not letting  me change full to first name in places-->
+            <input 
+            type="text" 
+            class="form-control" 
+            id="lastName" placeholder="lastName" 
+            name="lastName"
+            required
+            #lastName="ngModel"
+            (change)= "test(lastName)" 
+            [(ngModel)]="newEmployee.lastName">
+            <div *ngIf="!lastName.valid" class="small text-danger">lastName!</div>
+          </div>
+
+          <div class="mb-3" >
+            <label for="phone" class="form-label">phone</label>
+            <!-- Currently not letting  me change full to first name in places-->
+            <input 
+            type="tel" 
+            class="form-control" 
+            id="phone" placeholder="phone" 
+            name="phone"
+            required
+            #phone="ngModel"
+            (change)= "test(phone)" 
+            [(ngModel)]="newEmployee.phone">
+            <div *ngIf="!phone.valid" class="small text-danger">phone!</div>
+          </div>
+          
+        
+       
+  
+      </div>
+      <div class="card-footer bg-secondary"><button
+          [disabled]="!myFormTemplate.valid" 
+          type="submit" 
+          class="btn btn-light" ></button>UPDATE</div>
+  </form>
+  </div>
 
     <table class="table table-striped">
         <thead>
