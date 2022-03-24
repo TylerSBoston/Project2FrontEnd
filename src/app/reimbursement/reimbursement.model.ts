@@ -1,7 +1,7 @@
 export interface Reimbursement{
-    reimbursementID: number,
-    statusID: number,
-    employeeID: number,
+    reimbursementId: number,
+    statusId: number,
+    employeeId: number,
     employee: string,
     status: string,
     expenseType: string,

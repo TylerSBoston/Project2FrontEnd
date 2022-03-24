@@ -22,7 +22,7 @@
         </thead>
         <tbody>
             <tr *ngFor = "let rem of allReimbursements">
-                <td>{{rem.reimbursementID}}</td>
+                <td>{{rem.reimbursementId}}</td>
                 <td>{{rem.employee}}</td>
                 <td>{{rem.status}}</td>
                 <td>{{rem.merchant}}</td>
@@ -32,18 +32,18 @@
                 <td>{{rem.currentComment}}</td>
                 <td>{{rem.dateOfTransaction}}</td>
                 <td>{{rem.dateSubmitted}}</td>
-                <td *ngIf = "rem.statusID < 4">
-                    <input type="text" id = "newComment" name = "newComment" [(ngModel)]="newComment[rem.reimbursementID]"/>
+                <td *ngIf = "rem.statusId < 4">
+                    <input type="text" id = "newComment" name = "newComment" [(ngModel)]="newComment[rem.reimbursementId]"/>
                 </td>
                 <!--will attach to the input later-->
-                <td *ngIf = "rem.statusID < 4">
-                    <button type="button" class="btn btn-success" (click)="updateReimbursement(rem,4,newComment[rem.reimbursementID])"><i class="material-icons">done</i></button>
-                    <button type="button" class="btn btn-danger" (click)="updateReimbursement(rem,5,newComment[rem.reimbursementID])"><i class="material-icons">close</i></button>
+                <td *ngIf = "rem.statusId < 4">
+                    <button type="button" class="btn btn-success" (click)="updateReimbursement(rem,4,newComment[rem.reimbursementId])"><i class="material-icons">done</i></button>
+                    <button type="button" class="btn btn-danger" (click)="updateReimbursement(rem,5,newComment[rem.reimbursementId])"><i class="material-icons">close</i></button>
                 </td>
                 
                 <!-- To make the parts without buttons/commets look nice-->
-                <td *ngIf = "rem.statusID > 3"></td>
-                <td *ngIf = "rem.statusID > 3"></td>
+                <td *ngIf = "rem.statusId > 3"></td>
+                <td *ngIf = "rem.statusId > 3"></td>
             </tr>
         </tbody>
     </table>

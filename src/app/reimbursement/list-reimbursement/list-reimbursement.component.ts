@@ -19,15 +19,15 @@ export class ListReimbursementComponent implements OnInit {
   toggleAdd: boolean = false;
 
   newReimbursement: Reimbursement = {
-    reimbursementID: 0,
+    reimbursementId: 0,
     dateSubmitted: "",
     dateOfTransaction: "",
-    employeeID: 0,
+    employeeId: 0,
     expenseType: "",
     amount: 0,
     status: "",
     merchant: "",
-    statusID: 0,
+    statusId: 0,
 
     details: "",
     currentComment: "",
@@ -35,7 +35,7 @@ export class ListReimbursementComponent implements OnInit {
   };
 
   newEmployee: Employee = {
-    employeeID: 0,
+    employeeId: 0,
     firstName: '',
     lastName: '',
     userName: '',
@@ -56,15 +56,15 @@ export class ListReimbursementComponent implements OnInit {
   }
 
   oneReimbursement: Reimbursement = {
-    reimbursementID: 0,
+    reimbursementId: 0,
     dateSubmitted: "",
     dateOfTransaction: "",
-    employeeID: 0,
+    employeeId: 0,
     expenseType: "",
     amount: 0,
     status: "p",
     merchant: "",
-    statusID: 0,
+    statusId: 0,
 
     details: "",
     currentComment: "",
@@ -72,7 +72,7 @@ export class ListReimbursementComponent implements OnInit {
   };
 
   oneEmployee: Employee = {
-    employeeID: 0,
+    employeeId: 0,
     firstName: '',
     lastName: '',
     userName: '',
@@ -161,7 +161,7 @@ export class ListReimbursementComponent implements OnInit {
     this.reimbursementService.addEmployee(this.newEmployee).subscribe((response)=>{
       console.log(response);
       this.newEmployee = {
-        employeeID: 0,
+        employeeId: 0,
         firstName: '',
         lastName: '',
         userName: '',
@@ -181,10 +181,10 @@ export class ListReimbursementComponent implements OnInit {
 
   addReimbursement() {
     let addNewReimbursement: Reimbursement = {
-      reimbursementID: 0,
+      reimbursementId: 0,
       dateSubmitted: this.newReimbursement.dateSubmitted,
       dateOfTransaction: this.newReimbursement.dateOfTransaction,
-      employeeID: this.newReimbursement.employeeID,
+      employeeId: this.newReimbursement.employeeId,
       expenseType: this.newReimbursement.expenseType,
       amount: this.newReimbursement.amount,
       status: this.newReimbursement.status,
@@ -192,7 +192,7 @@ export class ListReimbursementComponent implements OnInit {
       details: "",
       currentComment: "",
       employee: "",
-      statusID: 0
+      statusId: 0
     };
     this.reimbursementService.addReimbursement(addNewReimbursement);
     this.reimbursementService.fetchAllReimbursements();

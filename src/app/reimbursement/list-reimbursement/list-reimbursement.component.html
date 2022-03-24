@@ -33,7 +33,7 @@
               class="form-control" 
               id="employeeID" placeholder="employeeID." 
               name="employeeID"
-              [(ngModel)]="newReimbursement.employeeID">
+              [(ngModel)]="newReimbursement.employeeId">
             </div>
             <div class="form-check mb-3">
               <label for="amount" class="form-label">amount</label>
@@ -76,7 +76,7 @@
         
           <div class="mb-3" >
               <label for="employeeID" class="form-label">Employee ID:</label>
-             {{newEmployee.employeeID}}
+             {{newEmployee.employeeId}}
             </div>
 
           <div class="mb-3" >
@@ -187,10 +187,10 @@
             <td>{{employee.email}}</td>
             <td>{{employee.phone}}</td> -->
           <tr *ngFor = "let reimbursement of allReimbursements" > 
-              <td>{{reimbursement.reimbursementID}}</td>
+              <td>{{reimbursement.reimbursementId}}</td>
               <td>{{reimbursement.dateSubmitted}}</td>
               <td>{{reimbursement.dateOfTransaction}}</td>
-              <td>{{reimbursement.employeeID}}</td>
+              <td>{{reimbursement.employeeId}}</td>
               <td>{{reimbursement.amount}}</td>
               <td>{{reimbursement.merchant}}</td>
               <td>{{reimbursement.status}}</td>
@@ -200,7 +200,7 @@
               <td><button 
                 type="button" 
                 class="btn btn-primary"
-                (click)="goToEditReimbursement(newReimbursement.employeeID)">
+                (click)="goToEditReimbursement(newReimbursement.employeeId)">
                 <i class="material-icons">edit</i>
               </button></td>
 
