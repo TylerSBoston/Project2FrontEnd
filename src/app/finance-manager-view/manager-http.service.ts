@@ -27,33 +27,33 @@ export class ManagerHttpService {
   getPendingReimbursements(): Observable<Reimbursement[]>{
 
 
-    return this.http.get<Reimbursement[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/requests-pending",this.httpOptions)
+    return this.http.get<Reimbursement[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/finance-manager/requests-pending",this.httpOptions)
 
   }
 
   getCompletedReimbursements():  Observable<Reimbursement[]>{
     
-    return this.http.get<Reimbursement[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/requests-resolved",this.httpOptions)
+    return this.http.get<Reimbursement[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/finance-manager/requests-resolved",this.httpOptions)
   }
 
   getAllReimbursements():  Observable<Reimbursement[]>{
-    return this.http.get<Reimbursement[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/requests-all",this.httpOptions)
+    return this.http.get<Reimbursement[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/finance-manager/requests-all",this.httpOptions)
   }
   getEmployeeReimbursements(employeeID: number): Observable<Reimbursement[]>{
-    return this.http.get<Reimbursement[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/requests-employee/"+employeeID,this.httpOptions)
+    return this.http.get<Reimbursement[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/finance-manager/requests-employee/"+employeeID,this.httpOptions)
   }
   
   getAllEmployees(): Observable<Employee[]>{
 
 
-    return this.http.get<Employee[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/all-employees-manager-view",this.httpOptions)
+    return this.http.get<Employee[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/finance-manager/all-employees-manager-view",this.httpOptions)
 
   }
 
   updateReimbursement(reimbursement: Reimbursement): Observable<Reimbursement>{
 
     //backend technicly uses an update and insert.
-    return this.http.post<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/update-request",JSON.stringify(reimbursement),this.httpOptions)
+    return this.http.post<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/finance-manager/update-request",JSON.stringify(reimbursement),this.httpOptions)
   }
 
   getImage(imageUrl: string): Observable<Blob> {
