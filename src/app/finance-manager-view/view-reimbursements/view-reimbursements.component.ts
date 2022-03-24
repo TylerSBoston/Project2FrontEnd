@@ -82,11 +82,13 @@ export class ViewReimbursementsComponent implements OnInit {
       {
         if(status == 4)
         {
-          reimbursement.currentComment = 'approved'
+          reimbursement.status = "Approved"
+          reimbursement.statusId=4
         }
         else if(status == 5)
         {
-          reimbursement.currentComment = 'denied'
+          reimbursement.status = "Denied"
+          reimbursement.statusId=5
         }
       }
       else

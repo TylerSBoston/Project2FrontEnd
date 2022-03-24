@@ -56,9 +56,6 @@ export class ManagerHttpService {
     return this.http.post<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/finance-manager/update-request",JSON.stringify(reimbursement),this.httpOptions)
   }
 
-  getImage(imageUrl: string): Observable<Blob> {
-    return this.http.get(imageUrl, { responseType: 'blob' });
-  }
 
 
 

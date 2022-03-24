@@ -1,10 +1,59 @@
 <div>
-    <img src="images/1"
-     alt="Place image title"
-     *ngIf="!isImageLoading; else noImageFound">
-<ng-template #noImageFound>
-     <img src="images/1">
-</ng-template>
+    <h2>Manager Home page</h2>
+    <div class="container row">
+        <div class="col-md-6">
+            <input type="file" [(ngModel)]="currentInput" (change)="onFileChanged($event)" title = "file" name = "file" id = "file">
+        </div>
+    </div>
+    <div>
+        <div class="col-md-6">    
+            <input type="button" (click)="onUpload()" value="upload">   
+        </div>  
+    </div>   
+    <br>
     
+    <div class="container row">
 
+        <div class="col-md-12">
+
+            <div *ngIf=message>{{message}}</div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container row">
+
+        <div class="col-md-6">
+
+            <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"
+
+            name="name" />
+
+        </div>
+
+        <div class="col-md-6">
+
+            <input type="button" (click)="getImage()" value="Get Image">
+
+        </div>
+
+    </div>
+
+
+    <div class="container row">
+
+        <div class="col-md-12">
+
+        <div *ngIf=retrievedImage>
+
+                <img [src]="retrievedImage">
+
+            </div>
+
+        </div>
+
+    </div> 
 </div>
+
