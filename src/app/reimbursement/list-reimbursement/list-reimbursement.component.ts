@@ -17,6 +17,9 @@ export class ListReimbursementComponent implements OnInit {
   allEmployees: Employee[] = [];
 
   toggleAdd: boolean = false;
+  toggleAdd1: boolean = false;
+
+  toggleAddUser: boolean = false;
 
   newReimbursement: Reimbursement = {
     reimbursementId: 0,
@@ -88,14 +91,7 @@ export class ListReimbursementComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.loadEmployees();}
-
-    loadEmployees(){
-    this.reimbursementService.fetchAllEmployees().subscribe((response)=>{
-      console.log(response);
-      this.allEmployees = response;
-
-    });
+  
 
     this.loadReimbursements();}
 
@@ -103,6 +99,15 @@ export class ListReimbursementComponent implements OnInit {
     this.reimbursementService.fetchAllReimbursements().subscribe((response)=>{
       console.log(response);
       this.allReimbursements = response;
+
+    });
+
+    this.loadEmployees();}
+
+    loadEmployees(){
+    this.reimbursementService.fetchAllEmployees().subscribe((response)=>{
+      console.log(response);
+      this.allEmployees = response;
 
     });
     
@@ -121,15 +126,28 @@ export class ListReimbursementComponent implements OnInit {
       this.toggleAdd = true;
     }
   }
+
+  toggleAddUserForm() {
+    if (this.toggleAdd) {
+      this.toggleAdd = false;
+    }
+    else {
+      this.toggleAdd = true;
+    }
+  }
   // route to editbookcomponent, inject router into the constructor in order to use  this.router.navigate
   goToEditReimbursement(reimbursementID: number) {
+    this.router.navigate(['edit-reimbursement']);
+  }
+
+  goToEditEmployee(employeeID: number) {
     this.router.navigate(['edit-reimbursement']);
   }
 
   updateEmployee(){
     this.reimbursementService.updateEmployee(this.oneEmployee).subscribe((response)=>{
       console.log(response)
-      this.loadEmployees();
+      
 
     });
   }
@@ -151,7 +169,7 @@ export class ListReimbursementComponent implements OnInit {
   this.reimbursementService.deleteEmployee(employeeID).subscribe((response)=>{
     console.log(response);
    
-    this.loadEmployees();
+    
 
   });
  
@@ -171,7 +189,7 @@ export class ListReimbursementComponent implements OnInit {
         roles: [],
         password: ''
       }
-      this.loadEmployees();
+      
     })
     
 

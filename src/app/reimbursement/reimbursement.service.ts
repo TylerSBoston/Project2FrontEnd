@@ -15,7 +15,7 @@ export class ReimbursementService {
 constructor(private http: HttpClient) { }
 
 fetchAllEmployees(): Observable<Employee[]>{
-  return this.http.get<[]>("http://localhost:4040/AllEmployees");
+  return this.http.get<[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/finance-manager/all-employees-manager-view");
 }
 
 deleteEmployee(employeeID: number): Observable<Employee>{
