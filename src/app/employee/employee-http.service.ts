@@ -11,7 +11,7 @@ import { Role } from './role.model';
 })
 export class EmployeeHttpService {
   loggedInEmployee: Employee = {
-    employeeID: 0,
+    employeeId: 0,
     firstName: '',
     lastName: '',
     userName: '',
@@ -44,7 +44,7 @@ export class EmployeeHttpService {
        this.authService.loggedInPermissions.set(role.roleID,role.role);
       });
       this.authService.storeEmployee( this.loggedInEmployee);
-      if (this.loggedInEmployee.employeeID != 0 ){
+      if (this.loggedInEmployee.employeeId != 0 ){
         //user has logged in as admin
         //store user info in browser and mark that we have logged in
         if(this.authService.loggedInPermissions.has(1) ==  true)
@@ -62,7 +62,7 @@ export class EmployeeHttpService {
       else 
       {
         this.loggedInEmployee ={   
-         employeeID: 0,
+         employeeId: 0,
         firstName: '',
         lastName: '',
         userName: '',

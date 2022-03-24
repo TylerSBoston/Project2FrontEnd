@@ -15,15 +15,15 @@ import { AuthService } from 'src/app/employee/auth.service';
 })
 export class EditReimbursementComponent implements OnInit {
   newReimbursement: Reimbursement = {
-    reimbursementID: 0,
+    reimbursementId: 0,
     dateSubmitted: "",
     dateOfTransaction: "",
-    employeeID: 0,
+    employeeId: 0,
     expenseType: "",
     amount: 0,
     status: "",
     merchant: "",
-    statusID: 0,
+    statusId: 0,
     details: "",
     currentComment: "",
     employee: ""
@@ -32,7 +32,7 @@ export class EditReimbursementComponent implements OnInit {
 
   
   newEmployee: Employee = {
-    employeeID: 0,
+    employeeId: 0,
     firstName: '',
     lastName: '',
     userName: '',

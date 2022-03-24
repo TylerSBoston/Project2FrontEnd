@@ -67,7 +67,7 @@
         </thead>
         <tbody>
           <tr *ngFor = "let employee of allEmployees" > 
-            <td>{{employee.employeeID}}</td>
+            <td>{{employee.employeeId}}</td>
             <td>{{employee.firstName}}</td>
             <td>{{employee.lastName}}</td>
             <td>{{employee.email}}</td>
@@ -86,7 +86,7 @@
               <td><button 
                 type="button" 
                 class="btn btn-primary"
-                (click)="goToEditReimbursement(newEmployee.employeeID)">
+                (click)="goToEditReimbursement(newEmployee.employeeId)">
                 <i class="material-icons">edit</i>
               </button></td>
 
@@ -94,7 +94,7 @@
               <td><button 
                 type="button" 
                 class="btn btn-danger" 
-                (click)="deleteEmployee(newEmployee.employeeID)"
+                (click)="deleteEmployee(newEmployee.employeeId)"
               ><i class="material-icons">delete</i></button></td>
 
               

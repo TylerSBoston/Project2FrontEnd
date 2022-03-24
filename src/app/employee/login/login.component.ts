@@ -12,7 +12,7 @@ import { Employee } from '../employee.model';
 export class LoginComponent implements OnInit {
 
   newEmployee: Employee = {
-    employeeID: 0,
+    employeeId: 0,
     email: '',
     password: '',
     firstName: '',
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   async validateUser(){
     let returnEmployee: Employee  = await this.employeeHttpService.validateLogin( this.newEmployee);
-    if(returnEmployee.employeeID == 0){
+    if(returnEmployee.employeeId == 0){
       //invalid user
       //this.errorMessage ="Invalid Input!!!"
       

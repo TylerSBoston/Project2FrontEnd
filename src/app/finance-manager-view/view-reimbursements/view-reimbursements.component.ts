@@ -16,9 +16,9 @@ export class ViewReimbursementsComponent implements OnInit {
   newComment: string[] = [];
 
   newReimbursement: Reimbursement = {
-    reimbursementID: 0,
-    statusID: 0,
-    employeeID: 0,
+    reimbursementId: 0,
+    statusId: 0,
+    employeeId: 0,
     employee: '',
     status: '',
     expenseType: '',
@@ -76,7 +76,7 @@ export class ViewReimbursementsComponent implements OnInit {
   }
 
   updateReimbursement(reimbursement: Reimbursement, status: number, comment: string){
-      reimbursement.statusID = status;
+      reimbursement.statusId = status;
       
       if(comment == '')
       {
