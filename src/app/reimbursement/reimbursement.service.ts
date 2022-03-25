@@ -25,7 +25,7 @@ fetchAllEmployees(): Observable<Employee[]>{
 }
 
 deleteEmployee(employeeID: number): Observable<Employee>{
-  return this.http.delete<Employee>("http://localhost:4040/DeleteEmployees/{bid}S"+employeeID,this.httpOptions);
+  return this.http.delete<Employee>("http://localhost:4040/DeleteEmployees/"+employeeID,this.httpOptions);
  
 }
 
@@ -42,7 +42,7 @@ updateEmployee(employeeModel: Employee): Observable<Employee> {
 }
 
 fetchAEmployee(employeeId: number): Observable<Employee> {
-  return this.http.get<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/employees/{employeeId}"+employeeId,this.httpOptions);
+  return this.http.get<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/employees/"+employeeId,this.httpOptions);
 }
 
 
@@ -82,7 +82,7 @@ fetchAEmployee(employeeId: number): Observable<Employee> {
   }
 
   fetchAReimbursement(employeeId: number): Observable<Reimbursement> {
-    return this.http.get<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements/{employeeId}"+employeeId,this.httpOptions);
+    return this.http.get<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements/"+employeeId,this.httpOptions);
   }
 
 }
