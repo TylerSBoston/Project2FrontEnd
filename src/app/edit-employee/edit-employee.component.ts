@@ -36,6 +36,14 @@ export class EditEmployeeComponent implements OnInit {
     private auth: AuthService) { }
 
   ngOnInit(): void {
+
+    let employeeId: any = this.activatedRoute.snapshot.paramMap.get("myId");
+    console.log(employeeId);
+    this.reimbursementService.fetchAEmployee(employeeId).subscribe((response)=>{
+      this.newEmployee = response;
+    })
+
+
     this.newEmployee = this.auth.retrieveEmployee();
   }
 
