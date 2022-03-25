@@ -42,6 +42,7 @@ export class EditEmployeeComponent implements OnInit {
     let employeeId: any = this.activatedRoute.snapshot.paramMap.get("myId");
     console.log(employeeId);
     this.reimbursementService.fetchAEmployee(employeeId).subscribe((response)=>{
+      console.log(response);
       this.newEmployee = response;
     })
 

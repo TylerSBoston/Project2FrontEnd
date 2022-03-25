@@ -45,9 +45,9 @@ export class EditReimbursementComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let employeeId: any = this.activatedRoute.snapshot.paramMap.get("myId");
-    console.log(employeeId);
-    this.reimbursementService?.fetchAReimbursement(employeeId).subscribe((response)=>{
+    let reimbursementId: any = this.activatedRoute.snapshot.paramMap.get("myId");
+    console.log(reimbursementId);
+    this.reimbursementService?.fetchAReimbursement(reimbursementId).subscribe((response)=>{
       this.newReimbursement = response;
     });
 
