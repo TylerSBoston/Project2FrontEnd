@@ -1,49 +1,36 @@
-<div>
-    <h2>Manager Home page</h2>
-    <div class="container row">
-        <div class="col-md-6">
-            <input type="file" [(ngModel)]="currentInput" (change)="onFileChanged($event)" title = "file" name = "file" id = "file">
-        </div>
+<div class="container row">
+    <div class="col-md-12">
+        <h1>Nothing in Manager lander so image testing</h1>
     </div>
-    <div>
-        <div class="col-md-6">    
-            <input type="button" (click)="onUpload()" value="upload">   
-        </div>  
-    </div>   
-    <br>
-    
-    <div class="container row">
-
-        <div class="col-md-12">
-
-            <div *ngIf=message>{{message}}</div>
-
-        </div>
-
-    </div>
-    <div>
-
-        <div class="col-md-6">
-
-            <input type="button" (click)="getImage()" value="Get Image">
-
-        </div>
-
-    </div>
-
-
-    <div class="container row">
-
-        <div class="col-md-12">
-
-        <div *ngIf=retrievedImage>
-
-                <img [src]="retrievedImage">
-
-            </div>
-
-        </div>
-
-    </div> 
 </div>
 
+<div class="container row">
+    <div class="col-md-6">
+        <input type="file" (change)="onFileChanged($event)">
+
+    </div>
+    <div class="col-md-6">
+        <input type="button" (click)="onUpload()" value="upload">
+    </div>
+</div>
+<hr />
+<div class="container row">
+    <div class="col-md-12">
+        <div *ngIf=message>{{message}}</div>
+    </div>
+</div>
+
+<div class="container row">
+    <div class="col-md-6">
+        <input type="button" (click)="getImage(1)" value="Get Image">
+
+    </div>
+</div>
+
+<div class="container row">
+    <div class="col-md-12">
+        <div *ngIf=retrievedImage>
+            <img [src]="retrievedImage">
+        </div>
+    </div>
+</div>
