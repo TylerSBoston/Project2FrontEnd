@@ -24,6 +24,8 @@ export class FinanceManagerComponent implements OnInit {
   imageName: any;
   reader = new FileReader();
   blob: any;
+  url: any;
+  imageData: any;
 
 
   //Gets called when the user selects an image
@@ -63,23 +65,20 @@ export class FinanceManagerComponent implements OnInit {
     //Gets called when the user clicks on retieve image button to get the image from back end
     getImage(reimbursementID: number) {
     //Make a call to Sprinf Boot to get the Image Bytes.
-    this.httpClient.get('http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/images/' + reimbursementID,{responseType: 'blob'})
+    this.httpClient.get('http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/images/1',{responseType: 'blob'})
     .subscribe((res) => {
       console.log(res);
-      this.reader.readAsDataURL(res); 
-      this.base64Data = this.reader.result;
-      console.log(this.base64Data);
-      this.myFunction();
+      this.blob = res;
+      this.imageData = this.blob;
+      this.url = (window.URL || window.webkitURL).createObjectURL(this.blob);
+      this.retrievedImage = document.createElement('img');
+      console.log(this.blob.Type);
+      this.retrievedImage.src = this.url;
+      console.log(this.url);
+      console.log(this.blob);
     });
       
   }
-
-
-
-  public myFunction() : void {
-    this.retrievedImage = this.sanitizer.bypassSecurityTrustUrl('data:image/png;base64,' + this.base64Data);
-    
-}
 
 
 
