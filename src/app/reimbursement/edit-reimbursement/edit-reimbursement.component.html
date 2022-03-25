@@ -1,60 +1,75 @@
+
+
 <div class="container m-5">
-    <div class="card-header bg-secondary text-white">Update Request</div>
-    <form #myFormTemplate = "ngForm" (ngSubmit)="updateEmployee()">
-    <div  class="card-body">
+  <div class="card-header bg-secondary text-white">Update Request</div>
 
-      
-        <div class="mb-3" >
-            <label for="employeeID" class="form-label">Employee ID:</label>
-           {{newEmployee.employeeId}}
-          </div>
-        <div class="mb-3" >
-          <label for="firstName" class="form-label">firstName</label>
-          <!-- Currently not letting  me change full to first name in places-->
-          <input 
-          type="text" 
-          class="form-control" 
-          id="firstName" placeholder="Enter firstName" 
-          name="firstName"
-          required
-          #fullName="ngModel"
-          (change)= "test(fullName)" 
-          [(ngModel)]="newEmployee.firstName">
-          <div *ngIf="!fullName.valid" class="small text-danger">firstName is required!</div>
-        </div>
-        <div class="mb-3" >
-          <label for="email" class="form-label">email</label>
-          <input 
-          type="email" 
-          class="form-control" 
-          id="email" placeholder="Enter your email." 
-          name="email"
-          required
-          #myEmail="ngModel"
-          (change)= "test(myEmail)"
-          [(ngModel)]="newEmployee.email">
-          <div *ngIf="!myEmail.valid" class="small text-danger">Email is required!</div>
-        </div>
-        <div class="form-check mb-3">
-          <label for="phone" class="form-label">phone</label>
-          <input 
-          type="tel" 
-          class="form-control" 
-          id="phone" placeholder="Enter phone number." 
-          name="phone"
-          #myPhone="ngModel"
-          (change)= "test(myPhone)"
-          [(ngModel)]="newEmployee.phone">
-          <div *ngIf="!myPhone.valid" class="small text-danger">Phone Number </div>
-        </div>
-        
-      
-     
+  <form #myFormTemplate = "ngForm" (ngSubmit)="updateReimbursements()">
+  <div  class="card-body">
 
-    </div>
-    <div class="card-footer bg-secondary"><button
-        [disabled]="!myFormTemplate.valid" 
-        type="submit" 
-        class="btn btn-light" ></button>UPDATE</div>
+    
+      <div class="mb-3 mt-3" >
+          <label for="reimbursementId" class="form-label">reimbursementId:</label>
+         {{newReimbursement.reimbursementId}}
+        </div>
+
+
+
+      <div class="mb-3 mt-3" >
+        <label for="dateSubmitted" class="form-label">dateSubmitted</label>
+        <!-- Currently not letting  me change full to first name in places-->
+        <input 
+        type="text" 
+        class="form-control" 
+        id="dateSubmitted" placeholder="dateSubmitted" 
+        name="dateSubmitted"
+        required
+        #dateSubmitted="ngModel"
+        (change)= "test(dateSubmitted)" 
+        [(ngModel)]="newReimbursement.dateSubmitted">
+        <div *ngIf="!dateSubmitted.valid" class="small text-danger">dateSubmitted!</div>
+      </div>
+      <div class="mb-3 mt-3" >
+        <label for="dateOfTransaction" class="form-label">dateOfTransaction</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="dateOfTransaction" placeholder="dateOfTransaction." 
+        name="dateOfTransaction"
+        required
+        #dateOfTransaction="ngModel"
+        (change)= "test(dateOfTransaction)"
+        [(ngModel)]="newReimbursement.dateOfTransaction">
+        <div *ngIf="!dateOfTransaction.valid" class="small text-danger">dateOfTransaction</div>
+      </div>
+      <div class="mb-3 mt-3" >
+        <label for="amount" class="form-label">amount</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="amount" placeholder="amount" 
+        name="amount"
+        #amount="ngModel"
+        (change)= "test(amount)"
+        [(ngModel)]="newReimbursement.amount">
+        <div *ngIf="!amount.valid" class="small text-danger">amount </div>
+      </div>
+      <div class="mb-3 mt-3" >
+        <label for="merchant" class="form-label">merchant</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="merchant" placeholder="merchant" 
+        name="merchant"
+        #merchant="ngModel"
+        (change)= "test(merchant)"
+        [(ngModel)]="newReimbursement.merchant">
+        <div *ngIf="!merchant.valid" class="small text-danger">merchant </div>
+      </div>
+      </div>
+
+  <div class="card-footer bg-secondary"><button
+      [disabled]="!myFormTemplate.valid" 
+      type="submit" 
+      class="btn btn-light" >UPDATE</button></div>
 </form>
 </div>
