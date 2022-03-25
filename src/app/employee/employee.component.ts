@@ -80,21 +80,13 @@ export class EmployeeComponent implements OnInit {
   
 
   goToEditEmployee(employeeId: number) {
-    this.router.navigate(['employees', employeeId]);
+    this.router.navigate(['edit-employees', employeeId]);
   }
 
   test(myEmployeeId: any){
     console.log();
   }
 
-  updateEmployee(){
-    this.reimbursementService.updateEmployee(this.newEmployee).subscribe((response)=>{
-      console.log(response);
-
-      this.router.navigate(['employees']);
-      this.loadEmployees();
-
-    });
-  }
+  
 
 }

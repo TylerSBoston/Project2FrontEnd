@@ -39,6 +39,14 @@ export class EditReimbursementComponent implements OnInit {
     private auth: AuthService) { }
 
   ngOnInit(): void {
+
+    let employeeId: any = this.activatedRoute.snapshot.paramMap.get("myId");
+    console.log(employeeId);
+    this.reimbursementService.fetchAReimbursement(employeeId).subscribe((response)=>{
+      this.newReimbursement = response;
+    });
+
+
     this.newReimbursement = this.auth.retrieveReimbursement();}
 
 

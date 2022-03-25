@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: "managerViewReimbursements", component:ViewReimbursementsComponent, canActivate: [FinanceManagerGuard]},
   {path: "managerViewEmployees", component:ViewEmployeesComponent, canActivate: [FinanceManagerGuard]},
   {path: "employees", component:EmployeeComponent, canActivate: [AuthGuard]},
-  {path: "edit-employees", component:EditEmployeeComponent, canActivate: [AuthGuard]}
+  {path: "edit-employees/:myId", component:EditEmployeeComponent, canActivate: [AuthGuard]}
 
   
 
