@@ -21,13 +21,13 @@
     </thead>
     <tbody>
       <tr *ngFor = "let employee of allEmployees" > 
-        <td>{{employee.employeeId}}</td>
-        <td>{{employee.firstName}}</td>
-        <td>{{employee.lastName}}</td>
-        <td>{{employee.email}}</td>
-        <td>{{employee.phone}}</td>
-        <td>{{employee.userName}}</td>
-        <td>{{employee.jobTitle}}</td>
+        <td>{{employee?.employeeId}}</td>
+        <td>{{employee?.firstName}}</td>
+        <td>{{employee?.lastName}}</td>
+        <td>{{employee?.email}}</td>
+        <td>{{employee?.phone}}</td>
+        <td>{{employee?.userName}}</td>
+        <td>{{employee?.jobTitle}}</td>
 
         <td><button 
           type="button" 

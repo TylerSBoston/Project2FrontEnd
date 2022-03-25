@@ -7,7 +7,7 @@
     
       <div class="mb-3 mt-3" >
           <label for="employeeId" class="form-label">employeeId:</label>
-         {{newEmployee.employeeId}}
+         {{newEmployee?.employeeId}}
         </div>
 
 
@@ -24,7 +24,7 @@
         #firstName="ngModel"
         (change)= "test(firstName)" 
         [(ngModel)]="newEmployee.firstName">
-        <div *ngIf="!firstName.valid" class="small text-danger">firstName!</div>
+        <div *ngIf="!firstName?.valid" class="small text-danger">firstName!</div>
       </div> 
 
 
@@ -40,7 +40,7 @@
         #lastName="ngModel"
         (change)= "test(lastName)" 
         [(ngModel)]="newEmployee.lastName">
-        <div *ngIf="!lastName.valid" class="small text-danger">lastName!</div>
+        <div *ngIf="!lastName?.valid" class="small text-danger">lastName!</div>
       </div> 
 
 
@@ -56,7 +56,7 @@
         #email="ngModel"
         (change)= "test(email)" 
         [(ngModel)]="newEmployee.email">
-        <div *ngIf="!email.valid" class="small text-danger">email!</div>
+        <div *ngIf="!email?.valid" class="small text-danger">email!</div>
       </div>
 
 
@@ -72,12 +72,12 @@
         #phone="ngModel"
         (change)= "test(phone)" 
         [(ngModel)]="newEmployee.phone">
-        <div *ngIf="!phone.valid" class="small text-danger">phone!</div>
+        <div *ngIf="!phone?.valid" class="small text-danger">phone!</div>
       </div>
       </div> 
  
   <div class="card-footer bg-secondary"><button
-      [disabled]="!myFormTemplate.valid" 
+      [disabled]="!myFormTemplate?.valid" 
       type="submit" 
       id = "ngSubmit"
       class="btn btn-light" >UPDATE</button></div>
