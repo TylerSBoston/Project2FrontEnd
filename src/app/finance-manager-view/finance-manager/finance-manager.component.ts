@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Injectable, OnInit, ViewChild } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { ManagerHttpService } from '../manager-http.service';
 
@@ -11,7 +12,9 @@ import { ManagerHttpService } from '../manager-http.service';
 @Injectable({ providedIn: 'root' })
 export class FinanceManagerComponent implements OnInit {
 
-  constructor(private  MHRS:ManagerHttpService, private httpClient: HttpClient) { }
+  constructor(private  MHRS:ManagerHttpService,
+     private httpClient: HttpClient,
+     private sanitizer: DomSanitizer) { }
 
   selectedFile: File | undefined;
   retrievedImage: any;
@@ -19,6 +22,9 @@ export class FinanceManagerComponent implements OnInit {
   retrieveResonse: any;
   message: string = "";
   imageName: any;
+  reader = new FileReader();
+  blob: any;
+
 
   //Gets called when the user selects an image
   public onFileChanged(event: { target: any; }) {
@@ -57,15 +63,23 @@ export class FinanceManagerComponent implements OnInit {
     //Gets called when the user clicks on retieve image button to get the image from back end
     getImage(reimbursementID: number) {
     //Make a call to Sprinf Boot to get the Image Bytes.
-    this.httpClient.get('http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/images/' + reimbursementID)
-      .subscribe(
-        res => {
-          this.retrieveResonse = res;
-          this.base64Data = this.retrieveResonse.picByte;
-          this.retrievedImage = 'data:image/jpeg|png;base64,' + this.base64Data;
-        }
-      );
+    this.httpClient.get('http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/images/' + reimbursementID,{responseType: 'blob'})
+    .subscribe((res) => {
+      console.log(res);
+      this.reader.readAsDataURL(res); 
+      this.base64Data = this.reader.result;
+      console.log(this.base64Data);
+      this.myFunction();
+    });
+      
   }
+
+
+
+  public myFunction() : void {
+    this.retrievedImage = this.sanitizer.bypassSecurityTrustUrl('data:image/png;base64,' + this.base64Data);
+    
+}
 
 
 
