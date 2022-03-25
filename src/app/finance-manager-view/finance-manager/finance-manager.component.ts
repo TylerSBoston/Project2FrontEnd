@@ -22,7 +22,7 @@ export class FinanceManagerComponent implements OnInit {
 
   httpOptions = { 
     headers: new HttpHeaders(
-      { 'Content-Type': 'multipart/form-data', 'enctype': 'multipart/form-data' }
+      { 'Content-Type': 'multipart/form-data' }
     ) 
   };
 
@@ -45,7 +45,7 @@ export class FinanceManagerComponent implements OnInit {
     this.httpClient.post("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/images/1",uploadImageData,this.httpOptions);
   }
   getImage() {
-    this.httpClient.get('http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/images/1',this.httpOptions)
+    this.httpClient.get('http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/images/1')
       .subscribe(
         res=> {
           this.retrieveResonse = res;
