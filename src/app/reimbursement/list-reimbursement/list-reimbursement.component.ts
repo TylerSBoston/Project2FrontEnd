@@ -17,6 +17,9 @@ export class ListReimbursementComponent implements OnInit {
   allEmployees: Employee[] = [];
 
   toggleAdd: boolean = false;
+  toggleAdd1: boolean = false;
+
+  toggleAddUser: boolean = false;
 
   newReimbursement: Reimbursement = {
     reimbursementId: 0,
@@ -88,6 +91,17 @@ export class ListReimbursementComponent implements OnInit {
 
 
   ngOnInit(): void {
+  
+
+    this.loadReimbursements();}
+
+    loadReimbursements(){
+    this.reimbursementService.fetchAllReimbursements().subscribe((response)=>{
+      console.log(response);
+      this.allReimbursements = response;
+
+    });
+
     this.loadEmployees();}
 
     loadEmployees(){
@@ -97,6 +111,9 @@ export class ListReimbursementComponent implements OnInit {
 
     });
     
+  }
+  test(myEmployeeId: any){
+    console.log();
   }
 
 
@@ -109,72 +126,95 @@ export class ListReimbursementComponent implements OnInit {
       this.toggleAdd = true;
     }
   }
+
+  toggleAddUserForm() {
+    if (this.toggleAdd1) {
+      this.toggleAdd = false;
+    }
+    else {
+      this.toggleAdd = true;
+    }
+  }
   // route to editbookcomponent, inject router into the constructor in order to use  this.router.navigate
   goToEditReimbursement(reimbursementID: number) {
-    this.router.navigate(['edit-reimbursement']);
+    this.router.navigate(['edit-reimbursement', reimbursementID]);
   }
 
-  updateEmployee(){
-    this.reimbursementService.updateEmployee(this.oneEmployee).subscribe((response)=>{
-      console.log(response)
-      this.loadEmployees();
-
-    });
+  goToEditEmployee(employeeID: number) {
+    this.router.navigate(['edit-reimbursement', employeeID]);
   }
+
+  // updateEmployee(){
+  //   this.reimbursementService.updateEmployee(this.oneEmployee).subscribe((response)=>{
+  //     console.log(response)
+      
+
+  //   });
+  // }
+
+  // updateReimbursement(){
+  //   this.reimbursementService.updateReimbursement(this.oneReimbursement).subscribe((response)=>{
+  //     console.log(response)
+  //     this.loadReimbursements();
+
+  //   });
+  // }
 
   
 
 
 
 
-  deleteEmployee(employeeID: number) {
-  this.reimbursementService.deleteEmployee(employeeID).subscribe((response)=>{
-    console.log(response);
+  // deleteEmployee(employeeID: number) {
+  // this.reimbursementService.deleteEmployee(employeeID).subscribe((response)=>{
+  //   console.log(response);
    
-    this.loadEmployees();
+    
 
-  });
+  // });
  
-  }
+  // }
 
-  addEmployee(){
-    this.reimbursementService.addEmployee(this.newEmployee).subscribe((response)=>{
-      console.log(response);
-      this.newEmployee = {
-        employeeId: 0,
-        firstName: '',
-        lastName: '',
-        userName: '',
-        jobTitle: '',
-        email: '',
-        phone: '',
-        roles: [],
-        password: ''
-      }
-      this.loadEmployees();
-    })
+  // addEmployee(){
+  //   this.reimbursementService.addEmployee(this.newEmployee).subscribe((response)=>{
+  //     console.log(response);
+  //     this.newEmployee = {
+  //       employeeId: 0,
+  //       firstName: '',
+  //       lastName: '',
+  //       userName: '',
+  //       jobTitle: '',
+  //       email: '',
+  //       phone: '',
+  //       roles: [],
+  //       password: ''
+  //     }
+  //     this.loadEmployees()
+  //   })
     
 
     
     
-  }
+  // }
 
   addReimbursement() {
-    let addNewReimbursement: Reimbursement = {
-      reimbursementId: 0,
-      dateSubmitted: this.newReimbursement.dateSubmitted,
-      dateOfTransaction: this.newReimbursement.dateOfTransaction,
-      employeeId: this.newReimbursement.employeeId,
-      expenseType: this.newReimbursement.expenseType,
-      amount: this.newReimbursement.amount,
-      status: this.newReimbursement.status,
-      merchant: this.newReimbursement.merchant,
+    this.reimbursementService.addReimbursement(this.newReimbursement).subscribe((response)=>{
+      console.log(response);
+      this.newReimbursement= {
+      reimbursementId:0,
+      dateSubmitted: "",
+      dateOfTransaction: "",
+      employeeId: 0,
+      expenseType: "",
+      amount: 0,
+      status: "",
+      merchant: "",
       details: "",
       currentComment: "",
       employee: "",
       statusId: 0
-    };
-    this.reimbursementService.addReimbursement(addNewReimbursement);
-    this.reimbursementService.fetchAllReimbursements();
-  }
+    }
+    this.loadReimbursements();
+  })
+}
 }

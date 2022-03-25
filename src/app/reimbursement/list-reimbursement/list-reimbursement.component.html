@@ -1,107 +1,287 @@
-<div>
-    <h3>Reimbursement Requests</h3>
+<div class="container">
+    <h3>Employee Home</h3>
     <div>
       <button type="button" class="btn btn-success" (click)="toggleAddForm()">Submit Request</button>
       <div class="card m-5" *ngIf="toggleAdd">
-        <div class="card-header bg-success text-white">Submit Request</div>
+        <div class="card-header bg-success text-white">Submit</div>
         <div  class="card-body">
-
           <form>
            
-            <div class="mb-3" >
-              <label for="fullName" class="form-label">Enter Name</label>
+            <div class="mb-3 mt-3" >
+              <label for="dateSubmitted" class="form-label">Enter Date</label>
               <input 
               type="text" 
               class="form-control" 
-              id="fullName" placeholder="Enter your Name" 
-              name="fullName"
-              [(ngModel)]="newEmployee.firstName">
+              id="dateSubmitted" placeholder="Enter Date" 
+              name="dateSubmitted"
+              [(ngModel)]="newReimbursement.dateSubmitted">
             </div>
-            <div class="mb-3" >
-              <label for="lastName" class="form-label">Last Name</label>
-              <input 
-              type="text" 
-              class="form-control" 
-              id="lastName" placeholder="Enter your Last Name" 
-              name="lastName"
-              [(ngModel)]="newEmployee.lastName">
-            </div>
-            <div class="form-check mb-3">
-              <label for="email" class="form-label"> Email</label>
-              <input 
-              type="email" 
-              class="form-control" 
-              id="email" placeholder="Enter your email." 
-              name="email"
-              [(ngModel)]="newEmployee.email">
-            </div>
-            <div class="form-check mb-3">
-              <label for="phone" class="form-label">phone</label>
-              <input 
-              type="tel" 
-              class="form-control" 
-              id="phone" placeholder="Phone Number" 
-              name="phone"
-              [(ngModel)]="newEmployee.phone">
-            </div>
-           
-          
-          </form>
 
+            <div class="mb-3" >
+              <label for="dateOfTransaction" class="form-label">Date OF Transaction</label>
+              <input 
+              type="text" 
+              class="form-control" 
+              id="dateOfTransaction" placeholder="dateOfTransaction" 
+              name="dateOfTransaction"
+              [(ngModel)]="newReimbursement.dateOfTransaction">
+            </div>
+
+            <div class="form-check mb-3">
+              <label for="employeeID" class="form-label"> employeeID</label>
+              <input 
+              type="text" 
+              class="form-control" 
+              id="employeeID" placeholder="employeeID." 
+              name="employeeID"
+              [(ngModel)]="newReimbursement.employeeId">
+            </div>
+
+            <div class="form-check mb-3">
+              <label for="amount" class="form-label">amount</label>
+              <input 
+              type="text" 
+              class="form-control" 
+              id="amount" placeholder="amount" 
+              name="amount"
+              [(ngModel)]="newReimbursement.amount">
+            </div>
+
+            <div class="form-check mb-3">
+              <label for="merchant" class="form-label">merchant</label>
+              <input 
+              type="text" 
+              class="form-control" 
+              id="merchant" placeholder="merchant" 
+              name="merchant"
+              [(ngModel)]="newReimbursement.merchant">
+            </div>
+            <div class="form-check mb-3">
+              <label for="status" class="form-label">status</label>
+              <input 
+              type="text" 
+              class="form-control" 
+              id="status" placeholder="status" 
+              name="status"
+              [(ngModel)]="newReimbursement.status">
+            </div>
+          </form>
         </div>
-        <div class="card-footer bg-success"><button type="button" class="btn btn-light" (click)="addEmployee()">SUBMIT</button></div>
+
+          <div class="card-footer bg-success"><button type="button" class="btn btn-light" (click)="addReimbursement()">SUBMIT</button>
+          </div>
       </div>
     </div>
-    <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>EmployeeId</th>
-            <th>fullName</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Edit</th>
-            <th>Delete</th>
 
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor = "let employee of allEmployees" > 
-            <td>{{employee.employeeId}}</td>
-            <td>{{employee.firstName}}</td>
-            <td>{{employee.lastName}}</td>
-            <td>{{employee.email}}</td>
-            <td>{{employee.phone}}</td>
-          <!-- <tr *ngFor = "let reimbursement of allReimbursements" > 
-              <td>{{reimbursement.reimbursementID}}</td>
-              <td>{{reimbursement.dateSubmitted}}</td>
-              <td>{{reimbursement.dateOfTransaction}}</td>
-              <td>{{reimbursement.employeeID}}</td>
-              <td>{{reimbursement.amount}}</td>
-              <td>{{reimbursement.merchant}}</td>
-              <td>{{reimbursement.status}}</td>
-              <td>{{reimbursement.dateUpdated}}</td> -->
-   
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>ReimbursementId</th>
+                <th>expense type</th>
+                <th>status</th>
+                <th>employeeID</th>
+                <th>Amount</th>
+                <th>merchant</th>
+                <th>dateOfTransaction</th>
+                <th>Edit</th>
+    
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr *ngFor = "let employee of allEmployees" > 
+                <td>{{employee.employeeID}}</td>
+                <td>{{employee.firstName}}</td>
+                <td>{{employee.lastName}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.phone}}</td> -->
+              <tr *ngFor = "let reimbursement of allReimbursements" > 
+                  <td>{{reimbursement.reimbursementId}}</td>
+                  <td>{{reimbursement.dateSubmitted}}</td>
+                  <td>{{reimbursement.dateOfTransaction}}</td>
+                  <td>{{reimbursement.employeeId}}</td>
+                  <td>{{reimbursement.amount}}</td>
+                  <td>{{reimbursement.merchant}}</td>
+                  <td>{{reimbursement.status}}</td>
               
-              <td><button 
-                type="button" 
-                class="btn btn-primary"
-                (click)="goToEditReimbursement(newEmployee.employeeId)">
-                <i class="material-icons">edit</i>
-              </button></td>
-
-            
-              <td><button 
+                  <td><button 
+                    type="button" 
+                    class="btn btn-primary"
+                    (click)="goToEditReimbursement(reimbursement.employeeId)">
+                    <i class="material-icons">edit</i>
+                  </button></td>
+              <!-- <td><button 
                 type="button" 
                 class="btn btn-danger" 
-                (click)="deleteEmployee(newEmployee.employeeId)"
-              ><i class="material-icons">delete</i></button></td>
+                (click)="deleteEmployee(newEmployee.employeeID)"
+              ><i class="material-icons">delete</i></button></td> -->
 
-              
-          
-          </tr>
-      
-        </tbody>
+            </tr>
+          </tbody>
       </table>
-</div>
+  </div>
 
+
+
+
+
+
+     <div>  <table class="table table-striped m-5">
+      <thead>
+        <tr>
+          <th>employeeId</th>
+          <th>firstName </th>
+          <th>lastName</th>
+          <th>email</th>
+          <th>phone</th>
+          <th>userName</th>
+          <th>jobTitle</th>
+          
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let employee of allEmployees" > 
+          <td>{{employee.employeeId}}</td>
+          <td>{{employee.firstName}}</td>
+          <td>{{employee.lastName}}</td>
+          <td>{{employee.email}}</td>
+          <td>{{employee.phone}}</td>
+          <td>{{employee.userName}}</td>
+          <td>{{employee.jobTitle}}</td>
+        </tr>
+      </tbody></table>
+
+        
+         
+
+
+ 
+            
+         
+          
+  
+      
+
+      <!-- <div>
+        
+        <div>
+          <button type="button" class="btn btn-success" (click)="toggleAddUserForm()">Edit Info</button>
+          <div class="card m-5" *ngIf="toggleAdd1">
+            <div class="card-header bg-success text-white">Update</div>
+            <div  class="card-body">
+    
+              <form>
+               
+                <div class="mb-3" >
+                  <label for="firstName" class="form-label">firstName</label>
+                  <input 
+                  type="text" 
+                  class="form-control" 
+                  id="firstName" placeholder="firstName" 
+                  name="firstName"
+                  [(ngModel)]="newEmployee.firstName">
+                </div>
+                <div class="mb-3" >
+                  <label for="lastName" class="form-label">lastName</label>
+                  <input 
+                  type="text" 
+                  class="form-control" 
+                  id="lastName" placeholder="lastName" 
+                  name="lastName"
+                  [(ngModel)]="newEmployee.lastName">
+                </div>
+                <div class="mb-3" >
+                  <label for="email" class="form-label">email</label>
+                  <input 
+                  type="email" 
+                  class="form-control" 
+                  id="email" placeholder="email" 
+                  name="email"
+                  [(ngModel)]="newEmployee.email">
+                </div>
+                <div class="mb-3" >
+                  <label for="phone" class="form-label">phone</label>
+                  <input 
+                  type="tel" 
+                  class="form-control" 
+                  id="phone" placeholder="phone" 
+                  name="phone"
+                  [(ngModel)]="newEmployee.phone">
+                </div>
+               
+                <div class="card-footer bg-success"><button type="button" class="btn btn-light" (click)="updateEmployee()">SUBMIT</button></div>
+    
+              </form>
+          </div>
+        </div>
+    
+     
+          <div>
+          <div class="card m-5" *ngIf="toggleAdd1">
+            <div class="card-header bg-success text-white">Update</div>
+            <div  class="card-body">
+    
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>employeeId</th>
+                    <th>firstName type</th>
+                    <th>lastName</th>
+                    <th>email</th>
+                    <th>phone</th>
+                    <th>userName</th>
+                    <th>jobTitle</th>
+                    <th>Edit</th>
+        
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = "let employee of allEmployees" > 
+                    <td>{{employee.employeeId}}</td>
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.lastName}}</td>
+                    <td>{{employee.email}}</td>
+                    <td>{{employee.phone}}</td>
+                    <td>{{employee.userName}}</td>
+                    <td>{{employee.jobTitle}}</td>
+                   
+
+
+           
+                      
+                      <td><button 
+                        type="button" 
+                        class="btn btn-primary"
+                        (click)="goToEditEmployee(newEmployee.employeeId)">
+                        <i class="material-icons">edit</i>
+                      </button></td>
+        
+                    
+                      <td><button 
+                        type="button" 
+                        class="btn btn-danger" 
+                        (click)="deleteEmployee(newEmployee.employeeID)"
+                      ><i class="material-icons">delete</i></button></td> -->
+        
+                      
+              
+    
+             
+         
+      
+     
+    
+    
+       
+    
+                
+                  <!-- <td><button 
+                    type="button" 
+                    class="btn btn-danger" 
+                    (click)="deleteEmployee(newEmployee.employeeID)"
+                  ><i class="material-icons">delete</i></button></td> -->
+    
+                  
+              
+        
+ -->
