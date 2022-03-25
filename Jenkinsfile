@@ -18,6 +18,7 @@ pipeline {
                 // not sure if i need to keep replacing the nginx server or not
             //    sh 'docker image rm -f nginx'
                 sh 'docker image rm -f project2-frontend'
+                sh 'docker image rm -f nginx'
                 echo 'clear stage'
             }
         
