@@ -1,14 +1,13 @@
-<div>
+<div class="container">
     <h3>Employee Home</h3>
     <div>
       <button type="button" class="btn btn-success" (click)="toggleAddForm()">Submit Request</button>
       <div class="card m-5" *ngIf="toggleAdd">
-        <div class="card-header bg-success text-white">Update</div>
+        <div class="card-header bg-success text-white">Submit</div>
         <div  class="card-body">
-
           <form>
            
-            <div class="mb-3" >
+            <div class="mb-3 mt-3" >
               <label for="dateSubmitted" class="form-label">Enter Date</label>
               <input 
               type="text" 
@@ -17,6 +16,7 @@
               name="dateSubmitted"
               [(ngModel)]="newReimbursement.dateSubmitted">
             </div>
+
             <div class="mb-3" >
               <label for="dateOfTransaction" class="form-label">Date OF Transaction</label>
               <input 
@@ -26,6 +26,7 @@
               name="dateOfTransaction"
               [(ngModel)]="newReimbursement.dateOfTransaction">
             </div>
+
             <div class="form-check mb-3">
               <label for="employeeID" class="form-label"> employeeID</label>
               <input 
@@ -35,6 +36,7 @@
               name="employeeID"
               [(ngModel)]="newReimbursement.employeeId">
             </div>
+
             <div class="form-check mb-3">
               <label for="amount" class="form-label">amount</label>
               <input 
@@ -44,6 +46,7 @@
               name="amount"
               [(ngModel)]="newReimbursement.amount">
             </div>
+
             <div class="form-check mb-3">
               <label for="merchant" class="form-label">merchant</label>
               <input 
@@ -62,17 +65,13 @@
               name="status"
               [(ngModel)]="newReimbursement.status">
             </div>
-            <div class="card-footer bg-success"><button type="button" class="btn btn-light" (click)="addReimbursement()">SUBMIT</button></div>
-
           </form>
+        </div>
+
+          <div class="card-footer bg-success"><button type="button" class="btn btn-light" (click)="addReimbursement()">SUBMIT</button>
+          </div>
       </div>
     </div>
-
-    <div>
-     
-      <div class="card m-5" *ngIf="toggleAdd">
-        <div class="card-header bg-success text-white">Update</div>
-        <div  class="card-body">
 
           <table class="table table-striped">
             <thead>
@@ -103,13 +102,11 @@
                   <td>{{reimbursement.amount}}</td>
                   <td>{{reimbursement.merchant}}</td>
                   <td>{{reimbursement.status}}</td>
-                
-       
-                  
+              
                   <td><button 
                     type="button" 
                     class="btn btn-primary"
-                    (click)="goToEditReimbursement(newReimbursement.employeeId)">
+                    (click)="goToEditReimbursement(reimbursement.employeeId)">
                     <i class="material-icons">edit</i>
                   </button></td>
               <!-- <td><button 
@@ -118,11 +115,10 @@
                 (click)="deleteEmployee(newEmployee.employeeID)"
               ><i class="material-icons">delete</i></button></td> -->
 
-          </tr>
-      
-        </tbody>
-        </table>
-
+            </tr>
+          </tbody>
+      </table>
+  </div>
 
 
 

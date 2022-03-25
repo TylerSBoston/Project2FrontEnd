@@ -2,15 +2,19 @@
 
 <div class="container m-5">
   <div class="card-header bg-secondary text-white">Update Request</div>
+
   <form #myFormTemplate = "ngForm" (ngSubmit)="updateReimbursements()">
   <div  class="card-body">
 
     
-      <div class="mb-3" >
-          <label for="employeeID" class="form-label">Employee ID:</label>
-         {{newEmployee.employeeId}}
+      <div class="mb-3 mt-3" >
+          <label for="reimbursementId" class="form-label">reimbursementId:</label>
+         {{newReimbursement.reimbursementId}}
         </div>
-      <div class="mb-3" >
+
+
+
+      <div class="mb-3 mt-3" >
         <label for="dateSubmitted" class="form-label">dateSubmitted</label>
         <!-- Currently not letting  me change full to first name in places-->
         <input 
@@ -24,7 +28,7 @@
         [(ngModel)]="newReimbursement.dateSubmitted">
         <div *ngIf="!dateSubmitted.valid" class="small text-danger">dateSubmitted!</div>
       </div>
-      <div class="mb-3" >
+      <div class="mb-3 mt-3" >
         <label for="dateOfTransaction" class="form-label">dateOfTransaction</label>
         <input 
         type="text" 
@@ -37,7 +41,7 @@
         [(ngModel)]="newReimbursement.dateOfTransaction">
         <div *ngIf="!dateOfTransaction.valid" class="small text-danger">dateOfTransaction</div>
       </div>
-      <div class="form-check mb-3">
+      <div class="mb-3 mt-3" >
         <label for="amount" class="form-label">amount</label>
         <input 
         type="text" 
@@ -49,7 +53,7 @@
         [(ngModel)]="newReimbursement.amount">
         <div *ngIf="!amount.valid" class="small text-danger">amount </div>
       </div>
-      <div class="form-check mb-3">
+      <div class="mb-3 mt-3" >
         <label for="merchant" class="form-label">merchant</label>
         <input 
         type="text" 
@@ -61,14 +65,11 @@
         [(ngModel)]="newReimbursement.merchant">
         <div *ngIf="!merchant.valid" class="small text-danger">merchant </div>
       </div>
-      
-    
-   
+      </div>
 
-  </div>
   <div class="card-footer bg-secondary"><button
       [disabled]="!myFormTemplate.valid" 
       type="submit" 
-      class="btn btn-light" ></button>UPDATE</div>
+      class="btn btn-light" >UPDATE</button></div>
 </form>
 </div>

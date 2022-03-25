@@ -16,7 +16,7 @@ const routes: Routes = [
  
   {path: "list-reimbursement",component:ListReimbursementComponent},
   {path: "header", component: HeaderComponent},
-  {path: "edit-reimbursement", component: EditReimbursementComponent, canActivate: [AuthGuard]},
+  {path: "edit-reimbursement/:myId", component: EditReimbursementComponent, canActivate: [AuthGuard]},
   {path: "login", component: LoginComponent},
   {path: "logout", component: LogoutComponent},
   {path: "managerView", component:FinanceManagerComponent, canActivate: [FinanceManagerGuard]},
