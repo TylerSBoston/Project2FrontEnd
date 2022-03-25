@@ -77,9 +77,7 @@ export class ViewReimbursementsComponent implements OnInit {
 
   updateReimbursement(reimbursement: Reimbursement, status: number, comment: string){
       reimbursement.statusId = status;
-      
-      if(comment == '')
-      {
+
         if(status == 4)
         {
           reimbursement.status = "Approved"
@@ -90,11 +88,10 @@ export class ViewReimbursementsComponent implements OnInit {
           reimbursement.status = "Denied"
           reimbursement.statusId=5
         }
-      }
-      else
-      {
-        reimbursement.currentComment= comment;
-      }
+      
+
+
+
       this.MHRS.updateReimbursement(reimbursement).subscribe((response)=>{
         this.newReimbursement = response;
       });
