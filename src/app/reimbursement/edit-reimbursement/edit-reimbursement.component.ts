@@ -5,6 +5,7 @@ import { ReimbursementService } from '../reimbursement.service';
 import { ListReimbursementComponent } from '../list-reimbursement/list-reimbursement.component';
 import { Employee } from 'src/app/employee/employee.model';
 import { AuthService } from 'src/app/employee/auth.service';
+import { EmployeeHttpService } from 'src/app/employee/employee-http.service';
 
 
 
@@ -33,6 +34,8 @@ export class EditReimbursementComponent implements OnInit {
 
 
   constructor(
+    
+    private employeeService: EmployeeHttpService,
     private activatedRoute: ActivatedRoute, 
     private reimbursementService: ReimbursementService,
     private router: Router,

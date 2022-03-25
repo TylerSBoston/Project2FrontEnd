@@ -37,12 +37,12 @@ addEmployee(employeeModel: Employee): Observable<Employee>{
 }
 
 updateEmployee(employeeModel: Employee): Observable<Employee> {
-  return this.http.put<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/employee", JSON.stringify(employeeModel),this.httpOptions);
+  return this.http.put<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/employees", JSON.stringify(employeeModel),this.httpOptions);
  
 }
 
 fetchAEmployee(employeeId: number): Observable<Employee> {
-  return this.http.get<Employee>("http://localhost:4040/AllEmployees/{bid}"+employeeId,this.httpOptions);
+  return this.http.get<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/employees/{employeeId}"+employeeId,this.httpOptions);
 }
 
 
