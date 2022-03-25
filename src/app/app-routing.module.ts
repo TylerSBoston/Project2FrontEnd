@@ -10,6 +10,8 @@ import { ViewReimbursementsComponent } from './finance-manager-view/view-reimbur
 import { FinanceManagerComponent } from './finance-manager-view/finance-manager/finance-manager.component';
 import { ViewEmployeesComponent } from './finance-manager-view/view-employees/view-employees.component';
 import { FinanceManagerGuard } from './guards/finance-manager.guard';
+import { EmployeeComponent } from './employee/employee.component';
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 
 
 const routes: Routes = [
@@ -21,7 +23,10 @@ const routes: Routes = [
   {path: "logout", component: LogoutComponent},
   {path: "managerView", component:FinanceManagerComponent, canActivate: [FinanceManagerGuard]},
   {path: "managerViewReimbursements", component:ViewReimbursementsComponent, canActivate: [FinanceManagerGuard]},
-  {path: "managerViewEmployees", component:ViewEmployeesComponent, canActivate: [FinanceManagerGuard]}
+  {path: "managerViewEmployees", component:ViewEmployeesComponent, canActivate: [FinanceManagerGuard]},
+  {path: "employees", component:EmployeeComponent, canActivate: [AuthGuard]},
+  {path: "edit-employees", component:EditEmployeeComponent, canActivate: [AuthGuard]}
+
   
 
   //prefix with colon to tell its a route parameter

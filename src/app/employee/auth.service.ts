@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Reimbursement } from '../reimbursement/reimbursement.model';
 import { Employee } from './employee.model';
 import { Role } from './role.model';
 
@@ -19,6 +20,12 @@ export class AuthService {
 
    retrieveEmployee(): Employee{
     let data: any =  sessionStorage.getItem("employeeInfo");
+    this.loggedIn =  true;
+    return JSON.parse(data);
+  }
+
+  retrieveReimbursement(): Reimbursement{
+    let data: any =  sessionStorage.getItem("reimbursementInfo");
     this.loggedIn =  true;
     return JSON.parse(data);
   }
