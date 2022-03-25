@@ -117,6 +117,9 @@ export class ListReimbursementComponent implements OnInit {
   // route to editbookcomponent, inject router into the constructor in order to use  this.router.navigate
   goToEditReimbursement(employeeId: number) {
     this.router.navigate(['edit-reimbursement', employeeId]);
+   
+
+   
   }
 
 
@@ -133,8 +136,10 @@ export class ListReimbursementComponent implements OnInit {
   updateReimbursement(){
     this.reimbursementService.updateReimbursement(this.newReimbursement).subscribe((response)=>{
       console.log(response)
-      this.router.navigate(['reimbursements'])
+      this.newReimbursement = this.auth.retrieveReimbursement();
       this.loadReimbursements();
+      this.router.navigate(['reimbursements'])
+      
 
     });
   }
@@ -177,7 +182,7 @@ export class ListReimbursementComponent implements OnInit {
   // }
 
   addReimbursement() {
-    this.reimbursementService.addReimbursement(this.newReimbursement).subscribe((response)=>{
+    this.reimbursementService?.addReimbursement(this.newReimbursement).subscribe((response)=>{
       console.log(response);
       this.newReimbursement= {
         reimbursementId: 0,

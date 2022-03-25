@@ -6,6 +6,7 @@ import { ListReimbursementComponent } from '../list-reimbursement/list-reimburse
 import { Employee } from 'src/app/employee/employee.model';
 import { AuthService } from 'src/app/employee/auth.service';
 import { EmployeeHttpService } from 'src/app/employee/employee-http.service';
+import { FormBuilder, FormsModule } from '@angular/forms';
 
 
 
@@ -39,13 +40,14 @@ export class EditReimbursementComponent implements OnInit {
     private activatedRoute: ActivatedRoute, 
     private reimbursementService: ReimbursementService,
     private router: Router,
-    private auth: AuthService) { }
+    private auth: AuthService,
+    private form: FormsModule) { }
 
   ngOnInit(): void {
 
     let employeeId: any = this.activatedRoute.snapshot.paramMap.get("myId");
     console.log(employeeId);
-    this.reimbursementService.fetchAReimbursement(employeeId).subscribe((response)=>{
+    this.reimbursementService?.fetchAReimbursement(employeeId).subscribe((response)=>{
       this.newReimbursement = response;
     });
 
@@ -70,6 +72,11 @@ export class EditReimbursementComponent implements OnInit {
 
     updateReimbursement(){
       this.reimbursementService.updateReimbursement(this.newReimbursement).subscribe((response)=>{
+        
+        this.newReimbursement = this.auth.retrieveReimbursement();
+        
+        
+        
         console.log(response);
   
         this.router.navigate(['list-reimbursement']);
