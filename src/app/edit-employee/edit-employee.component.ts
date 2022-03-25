@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../employee/auth.service';
+import { EmployeeHttpService } from '../employee/employee-http.service';
 import { Employee } from '../employee/employee.model';
 import { ReimbursementService } from '../reimbursement/reimbursement.service';
 
@@ -31,6 +32,7 @@ export class EditEmployeeComponent implements OnInit {
 
 
   constructor(   private activatedRoute: ActivatedRoute, 
+    private employeeService: EmployeeHttpService,
     private reimbursementService: ReimbursementService,
     private router: Router,
     private auth: AuthService) { }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReimbursementService } from '../reimbursement/reimbursement.service';
 import { AuthService } from './auth.service';
+import { EmployeeHttpService } from './employee-http.service';
 import { Employee } from './employee.model';
 
 @Component({
@@ -27,6 +28,7 @@ export class EmployeeComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, 
     private reimbursementService: ReimbursementService,
+    private employeeService: EmployeeHttpService,
     private router: Router,
     private auth: AuthService) { }
 

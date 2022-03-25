@@ -45,8 +45,9 @@ export class ListReimbursementComponent implements OnInit {
 
 
   constructor(private reimbursementService: ReimbursementService,
+    private employeeService: EmployeeHttpService,
      private router: Router,
-     private employeeService: EmployeeHttpService,
+    
      private auth: AuthService) {
   }
 
