@@ -81,8 +81,8 @@ fetchAEmployee(employeeId: number): Observable<Employee> {
   
   }
 
-  fetchAReimbursement(employeeId: number): Observable<Reimbursement> {
-    return this.http.get<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements/"+employeeId,this.httpOptions);
+  fetchAReimbursement(reimbursementId: number): Observable<Reimbursement> {
+    return this.http.get<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements/"+reimbursementId,this.httpOptions);
   }
 
 }
