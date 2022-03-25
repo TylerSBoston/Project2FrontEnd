@@ -21,7 +21,7 @@ constructor(private http: HttpClient) { }
 };
 
 fetchAllEmployees(): Observable<Employee[]>{
-  return this.http.get<[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/employees",this.httpOptions);
+  return this.http.get<[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/finance-manager/all-employees-manager-view",this.httpOptions);
 }
 
 deleteEmployee(employeeID: number): Observable<Employee>{
