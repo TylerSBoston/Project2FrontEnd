@@ -50,6 +50,11 @@ export class EditReimbursementComponent implements OnInit {
     private auth: AuthService) { }
 
   ngOnInit(): void {
+
+    this.newEmployee = this.auth.retrieveEmployee();
+
+
+
     //to take out route parameter we need to inject ActivatedRoute
   let reimbursementId: any = this.activatedRoute.snapshot.paramMap.get("myId");
   console.log(reimbursementId);
