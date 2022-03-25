@@ -77,7 +77,7 @@ fetchAEmployee(employeeId: number): Observable<Employee> {
   }
 
   updateReimbursement(reimbursementModel: Reimbursement): Observable<Reimbursement> {
-    return this.http.put<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements", JSON.stringify(reimbursementModel),this.httpOptions);
+    return this.http.put<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/finance-manager//update-request", JSON.stringify(reimbursementModel),this.httpOptions);
   
   }
 
