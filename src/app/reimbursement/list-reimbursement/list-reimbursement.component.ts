@@ -4,6 +4,8 @@ import { EmployeeHttpService } from 'src/app/employee/employee-http.service';
 import { Employee } from 'src/app/employee/employee.model';
 import { Reimbursement } from '../reimbursement.model';
 import { ReimbursementService } from '../reimbursement.service';
+import { EmployeeComponent } from 'src/app/employee/employee.component';
+import { AuthService } from 'src/app/employee/auth.service';
 
 
 @Component({
@@ -14,12 +16,10 @@ import { ReimbursementService } from '../reimbursement.service';
 export class ListReimbursementComponent implements OnInit {
 
   allReimbursements: Reimbursement[] = [];
-  allEmployees: Employee[] = [];
-
   toggleAdd: boolean = false;
-  toggleAdd1: boolean = false;
+  
 
-  toggleAddUser: boolean = false;
+  // toggleAddUser: boolean = false;
 
   newReimbursement: Reimbursement = {
     reimbursementId: 0,
@@ -37,17 +37,6 @@ export class ListReimbursementComponent implements OnInit {
     employee: ""
   };
 
-  newEmployee: Employee = {
-    employeeId: 0,
-    firstName: '',
-    lastName: '',
-    userName: '',
-    jobTitle: '',
-    email: '',
-    phone: '',
-    roles: [],
-    password: ''
-  };
 
   
 
@@ -55,42 +44,47 @@ export class ListReimbursementComponent implements OnInit {
 
 
 
-  constructor(private reimbursementService: ReimbursementService, private router: Router,private employeeService: EmployeeHttpService) {
+  constructor(private reimbursementService: ReimbursementService,
+     private router: Router,
+     private employeeService: EmployeeHttpService,
+     private auth: AuthService) {
   }
 
-  oneReimbursement: Reimbursement = {
-    reimbursementId: 0,
-    dateSubmitted: "",
-    dateOfTransaction: "",
-    employeeId: 0,
-    expenseType: "",
-    amount: 0,
-    status: "p",
-    merchant: "",
-    statusId: 0,
+  // oneReimbursement: Reimbursement = {
+  //   reimbursementId: 0,
+  //   dateSubmitted: "",
+  //   dateOfTransaction: "",
+  //   employeeId: 0,
+  //   expenseType: "",
+  //   amount: 0,
+  //   status: "p",
+  //   merchant: "",
+  //   statusId: 0,
 
-    details: "",
-    currentComment: "",
-    employee: ""
-  };
+  //   details: "",
+  //   currentComment: "",
+  //   employee: ""
+  // };
 
-  oneEmployee: Employee = {
-    employeeId: 0,
-    firstName: '',
-    lastName: '',
-    userName: '',
-    jobTitle: '',
-    email: '',
-    phone: '',
-    roles: [],
-    password: ''
-  };
+  // oneEmployee: Employee = {
+  //   employeeId: 0,
+  //   firstName: '',
+  //   lastName: '',
+  //   userName: '',
+  //   jobTitle: '',
+  //   email: '',
+  //   phone: '',
+  //   roles: [],
+  //   password: ''
+  // };
 
 
 
 
 
   ngOnInit(): void {
+
+    this.newReimbursement = this.auth.retrieveReimbursement();
   
 
     this.loadReimbursements();}
@@ -102,16 +96,7 @@ export class ListReimbursementComponent implements OnInit {
 
     });
 
-    this.loadEmployees();}
-
-    loadEmployees(){
-    this.reimbursementService.fetchAllEmployees().subscribe((response)=>{
-      console.log(response);
-      this.allEmployees = response;
-
-    });
-    
-  }
+    }
   test(myEmployeeId: any){
     console.log();
   }
@@ -127,22 +112,14 @@ export class ListReimbursementComponent implements OnInit {
     }
   }
 
-  toggleAddUserForm() {
-    if (this.toggleAdd1) {
-      this.toggleAdd = false;
-    }
-    else {
-      this.toggleAdd = true;
-    }
-  }
+ 
   // route to editbookcomponent, inject router into the constructor in order to use  this.router.navigate
-  goToEditReimbursement(reimbursementID: number) {
-    this.router.navigate(['edit-reimbursement', reimbursementID]);
+  goToEditReimbursement(employeeId: number) {
+    this.router.navigate(['edit-reimbursement', employeeId]);
   }
 
-  goToEditEmployee(employeeID: number) {
-    this.router.navigate(['edit-reimbursement', employeeID]);
-  }
+
+
 
   // updateEmployee(){
   //   this.reimbursementService.updateEmployee(this.oneEmployee).subscribe((response)=>{
@@ -152,13 +129,14 @@ export class ListReimbursementComponent implements OnInit {
   //   });
   // }
 
-  // updateReimbursement(){
-  //   this.reimbursementService.updateReimbursement(this.oneReimbursement).subscribe((response)=>{
-  //     console.log(response)
-  //     this.loadReimbursements();
+  updateReimbursement(){
+    this.reimbursementService.updateReimbursement(this.newReimbursement).subscribe((response)=>{
+      console.log(response)
+      this.router.navigate(['reimbursements'])
+      this.loadReimbursements();
 
-  //   });
-  // }
+    });
+  }
 
   
 
@@ -201,18 +179,18 @@ export class ListReimbursementComponent implements OnInit {
     this.reimbursementService.addReimbursement(this.newReimbursement).subscribe((response)=>{
       console.log(response);
       this.newReimbursement= {
-      reimbursementId:0,
-      dateSubmitted: "",
-      dateOfTransaction: "",
-      employeeId: 0,
-      expenseType: "",
-      amount: 0,
-      status: "",
-      merchant: "",
-      details: "",
-      currentComment: "",
-      employee: "",
-      statusId: 0
+        reimbursementId: 0,
+        statusId: 0,
+        employeeId: 0,
+        employee: "",
+        status: "",
+        expenseType: "",
+        merchant: "",
+        amount: 0,
+        details: "",            // Info about reimbursement, 
+        currentComment: "",     // most recent comment usually about a update or approval/denail
+        dateOfTransaction: "",
+        dateSubmitted: ""  
     }
     this.loadReimbursements();
   })

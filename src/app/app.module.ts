@@ -13,6 +13,8 @@ import { ViewEmployeesComponent } from './finance-manager-view/view-employees/vi
 import { ViewReimbursementsComponent } from './finance-manager-view/view-reimbursements/view-reimbursements.component';
 import { FinanceManagerComponent } from './finance-manager-view/finance-manager/finance-manager.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EmployeeComponent } from './employee/employee.component';
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 
 
 
@@ -32,6 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     FinanceManagerComponent,
     ViewEmployeesComponent,
     ViewReimbursementsComponent,
+    EmployeeComponent,
+    EditEmployeeComponent,
   ],
   imports: [
     BrowserModule,

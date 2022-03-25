@@ -1,0 +1,40 @@
+     
+     
+     
+  
+
+
+
+  <div class = "container">  <table class="table table-striped m-5">
+    <thead>
+      <tr>
+        <th>employeeId</th>
+        <th>firstName </th>
+        <th>lastName</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>userName</th>
+        <th>jobTitle</th>
+        
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let employee of allEmployees" > 
+        <td>{{employee.employeeId}}</td>
+        <td>{{employee.firstName}}</td>
+        <td>{{employee.lastName}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.phone}}</td>
+        <td>{{employee.userName}}</td>
+        <td>{{employee.jobTitle}}</td>
+
+        <td><button 
+          type="button" 
+          class="btn btn-primary"
+          (click)="goToEditEmployee(employee.employeeId)">
+          <i class="material-icons">edit</i>
+        </button></td>
+      </tr>
+    </tbody></table>
+   </div>

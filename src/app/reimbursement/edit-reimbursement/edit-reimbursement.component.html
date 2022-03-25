@@ -3,13 +3,13 @@
 <div class="container m-5">
   <div class="card-header bg-secondary text-white">Update Request</div>
 
-  <form #myFormTemplate = "ngForm" (ngSubmit)="updateReimbursements()">
+  <form #myFormTemplate = "ngForm" (ngSubmit)="updateReimbursement()">
   <div  class="card-body">
 
     
       <div class="mb-3 mt-3" >
-          <label for="reimbursementId" class="form-label">reimbursementId:</label>
-         {{newReimbursement.reimbursementId}}
+          <label for="employeeId" class="form-label">employeeId:</label>
+         {{newReimbursement.employeeId}}
         </div>
 
 
@@ -73,3 +73,15 @@
       class="btn btn-light" >UPDATE</button></div>
 </form>
 </div>
+
+
+
+
+
+
+
+
+
+
+}
+

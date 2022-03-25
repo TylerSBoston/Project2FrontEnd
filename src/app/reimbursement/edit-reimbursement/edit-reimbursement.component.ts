@@ -30,18 +30,7 @@ export class EditReimbursementComponent implements OnInit {
 
   }
 
-  
-  newEmployee: Employee = {
-    employeeId: 0,
-    firstName: '',
-    lastName: '',
-    userName: '',
-    jobTitle: '',
-    email: '',
-    phone: '',
-    roles: [],
-    password: ''
-  };
+
 
   constructor(
     private activatedRoute: ActivatedRoute, 
@@ -50,12 +39,7 @@ export class EditReimbursementComponent implements OnInit {
     private auth: AuthService) { }
 
   ngOnInit(): void {
-    //to take out route parameter we need to inject ActivatedRoute
-  let reimbursementId: any = this.activatedRoute.snapshot.paramMap.get("myId");
-  console.log(reimbursementId);
-  this.reimbursementService.fetchAReimbursement(reimbursementId).subscribe((response)=>{
-    this.newReimbursement = response;
-  });}
+    this.newReimbursement = this.auth.retrieveReimbursement();}
 
 
     
@@ -72,15 +56,8 @@ export class EditReimbursementComponent implements OnInit {
     console.log();
   }
 
-  updateEmployee(){
-    this.reimbursementService.updateEmployee(this.newEmployee).subscribe((response)=>{
-      console.log(response);
 
-      this.router.navigate(['list-reimbursement']);
-
-    });
-  }
-    updateReimbursements(){
+    updateReimbursement(){
       this.reimbursementService.updateReimbursement(this.newReimbursement).subscribe((response)=>{
         console.log(response);
   

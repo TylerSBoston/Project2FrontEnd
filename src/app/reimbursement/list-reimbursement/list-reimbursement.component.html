@@ -68,7 +68,7 @@
           </form>
         </div>
 
-          <div class="card-footer bg-success"><button type="button" class="btn btn-light" (click)="addReimbursement()">SUBMIT</button>
+    <div class="card-footer bg-success"><button type="button" class="btn btn-light" (click)="addReimbursement()">SUBMIT</button>
           </div>
       </div>
     </div>
@@ -120,36 +120,141 @@
       </table>
   </div>
 
+  <!-- <div class = "container">  <table class="table table-striped m-5">
+    <thead>
+      <tr>
+        <th>employeeId</th>
+        <th>firstName </th>
+        <th>lastName</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>userName</th>
+        <th>jobTitle</th>
+        
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let employee of allEmployees" > 
+        <td>{{employee.employeeId}}</td>
+        <td>{{employee.firstName}}</td>
+        <td>{{employee.lastName}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.phone}}</td>
+        <td>{{employee.userName}}</td>
+        <td>{{employee.jobTitle}}</td>
+
+        <td><button 
+          type="button" 
+          class="btn btn-primary"
+          (click)="goToEditEmployee(employee.employeeId)">
+          <i class="material-icons">edit</i>
+        </button></td>
+      </tr>
+    </tbody></table>
+   </div> -->
 
 
 
 
 
-     <div>  <table class="table table-striped m-5">
-      <thead>
-        <tr>
-          <th>employeeId</th>
-          <th>firstName </th>
-          <th>lastName</th>
-          <th>email</th>
-          <th>phone</th>
-          <th>userName</th>
-          <th>jobTitle</th>
-          
 
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor = "let employee of allEmployees" > 
-          <td>{{employee.employeeId}}</td>
-          <td>{{employee.firstName}}</td>
-          <td>{{employee.lastName}}</td>
-          <td>{{employee.email}}</td>
-          <td>{{employee.phone}}</td>
-          <td>{{employee.userName}}</td>
-          <td>{{employee.jobTitle}}</td>
-        </tr>
-      </tbody></table>
+
+
+
+
+  <!-- <div>
+    <button type="button" class="btn btn-success" (click)="toggleAddUserForm()">Edit Info</button>
+    <div class="card m-5 mt-3" *ngIf="toggleAdd1">
+  
+    <form #myFormTemplate = "ngForm" (ngSubmit)="updateEmployee()">
+    <div  class="card-body">
+  
+      
+        <div class="mb-3 mt-3" >
+            <label for="employeeId" class="form-label">employeeId:</label>
+           {{newEmployee.employeeId}}
+          </div>
+  
+  
+  
+        <div class="mb-3 mt-3" >
+          <label for="firstName" class="form-label">firstName</label>
+         Currently not letting  me change full to first name in places-->
+          <!-- <input 
+          type="text" 
+          class="form-control" 
+          id="firstName" placeholder="firstName" 
+          name="firstName"
+          required
+          #firstName="ngModel"
+          (change)= "test(firstName)" 
+          [(ngModel)]="newEmployee.firstName">
+          <div *ngIf="!firstName.valid" class="small text-danger">firstName!</div>
+        </div> -->
+  
+  
+       <!-- <div class="mb-3 mt-3" >
+          <label for="lastName" class="form-label">lastName</label>
+          < Currently not letting  me change full to first name in places-->
+          <!-- <input 
+          type="text" 
+          class="form-control" 
+          id="lastName" placeholder="lastName" 
+          name="lastName"
+          required
+          #lastName="ngModel"
+          (change)= "test(lastName)" 
+          [(ngModel)]="newEmployee.lastName">
+          <div *ngIf="!lastName.valid" class="small text-danger">lastName!</div>
+        </div> -->
+  
+  
+        <!-- <div class="mb-3 mt-3" >
+          <label for="email" class="form-label">email</label>
+           Currently not letting  me change full to first name in places-->
+          <!-- <input 
+          type="email" 
+          class="form-control" 
+          id="email" placeholder="email" 
+          name="email"
+          required
+          #email="ngModel"
+          (change)= "test(email)" 
+          [(ngModel)]="newEmployee.email">
+          <div *ngIf="!email.valid" class="small text-danger">email!</div>
+        </div>
+   -->
+  
+        <!-- <div class="mb-3 mt-3" >
+          <label for="phone" class="form-label">phone</label>
+          Currently not letting  me change full to first name in places-->
+          <!-- <input 
+          type="text" 
+          class="form-control" 
+          id="phone" placeholder="phone" 
+          name="phone"
+          required
+          #phone="ngModel"
+          (change)= "test(phone)" 
+          [(ngModel)]="newEmployee.phone">
+          <div *ngIf="!phone.valid" class="small text-danger">phone!</div>
+        </div>
+        </div> --> -->
+<!--   
+    <div class="card-footer bg-secondary"><button
+        [disabled]="!myFormTemplate.valid" 
+        type="submit" 
+        class="btn btn-light" >UPDATE</button></div>
+  </form>
+  </div> -->
+
+  <!-- <div class="mb-3 mt-3" >
+    <label for="employeeId" class="form-label">employeeId:</label>
+   {{newEmployee.employeeId}}
+  </div> -->
+
+    
 
         
          
@@ -284,4 +389,3 @@
                   
               
         
- -->

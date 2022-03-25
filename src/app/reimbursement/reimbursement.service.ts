@@ -37,7 +37,7 @@ addEmployee(employeeModel: Employee): Observable<Employee>{
 }
 
 updateEmployee(employeeModel: Employee): Observable<Employee> {
-  return this.http.put<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements", JSON.stringify(employeeModel),this.httpOptions);
+  return this.http.put<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/employee", JSON.stringify(employeeModel),this.httpOptions);
  
 }
 
