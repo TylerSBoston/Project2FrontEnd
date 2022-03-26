@@ -55,27 +55,7 @@ export class EmployeeComponent implements OnInit {
       }
     }
     
-  addEmployee(){
-    this.reimbursementService.addEmployee(this.newEmployee).subscribe((response)=>{
-      console.log(response);
-      this.newEmployee = {
-        employeeId: 0,
-        firstName: '',
-        lastName: '',
-        userName: '',
-        jobTitle: '',
-        email: '',
-        phone: '',
-        roles: [],
-        password: ''
-      }
-      this.loadEmployees()
-    })
-    
 
-    
-    
-  }
 
 
 

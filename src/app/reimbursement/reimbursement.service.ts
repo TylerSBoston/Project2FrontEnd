@@ -24,18 +24,6 @@ fetchAllEmployees(): Observable<Employee[]>{
   return this.http.get<[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/employees",this.httpOptions);
 }
 
-deleteEmployee(employeeID: number): Observable<Employee>{
-  return this.http.delete<Employee>("http://localhost:4040/DeleteEmployees/"+employeeID,this.httpOptions);
- 
-}
-
-addEmployee(employeeModel: Employee): Observable<Employee>{
-
-  return this.http.post<Employee>("http://localhost:4040/AddEmployees", JSON.stringify(employeeModel),this.httpOptions);
-
-
-}
-
 updateEmployee(employeeModel: Employee): Observable<Employee> {
   return this.http.put<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/employees", JSON.stringify(employeeModel),this.httpOptions);
  
@@ -44,21 +32,6 @@ updateEmployee(employeeModel: Employee): Observable<Employee> {
 fetchAEmployee(employeeId: number): Observable<Employee> {
   return this.http.get<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/employees/"+employeeId,this.httpOptions);
 }
-
-
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
-
 
   fetchAllReimbursements(): Observable<Reimbursement[]>{
     return this.http.get<Reimbursement[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements",this.httpOptions);
