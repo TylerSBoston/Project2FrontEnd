@@ -23,18 +23,17 @@ export class ListReimbursementComponent implements OnInit {
 
   newReimbursement: Reimbursement = {
     reimbursementId: 0,
-    dateSubmitted: "",
-    dateOfTransaction: "",
-    employeeId: 0,
-    expenseType: "",
-    amount: 0,
-    status: "",
-    merchant: "",
     statusId: 0,
-
-    details: "",
-    currentComment: "",
-    employee: ""
+    employeeId: 0,
+    employee: "",
+    status: "",
+    expenseType: "",
+    merchant: "",
+    amount: 0,
+    details: "",            // Info about reimbursement, 
+    currentComment: "",     // most recent comment usually about a update or approval/denail
+    dateOfTransaction: "",
+    dateSubmitted: ""
   };
 
 
@@ -115,8 +114,8 @@ export class ListReimbursementComponent implements OnInit {
 
  
   // route to editbookcomponent, inject router into the constructor in order to use  this.router.navigate
-  goToEditReimbursement(employeeId: number) {
-    this.router.navigate(['edit-reimbursement', employeeId]);
+  goToEditReimbursement(reimbursementId: number) {
+    this.router.navigate(['edit-reimbursement', reimbursementId]);
    
 
    
@@ -182,7 +181,7 @@ export class ListReimbursementComponent implements OnInit {
   // }
 
   addReimbursement() {
-    this.reimbursementService?.addReimbursement(this.newReimbursement).subscribe((response)=>{
+    this.reimbursementService.addReimbursement(this.newReimbursement).subscribe((response)=>{
       console.log(response);
       this.newReimbursement= {
         reimbursementId: 0,
