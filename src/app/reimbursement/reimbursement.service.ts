@@ -34,17 +34,17 @@ fetchAEmployee(employeeId: number): Observable<Employee> {
 }
 
   fetchAllReimbursements(): Observable<Reimbursement[]>{
-    return this.http.get<Reimbursement[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements/all",this.httpOptions);
+    return this.http.get<Reimbursement[]>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements",this.httpOptions);
   }
 
   deleteReimbursement(reimbursementId: number): Observable<Reimbursement>{
-    return this.http.delete<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements"+reimbursementId,this.httpOptions);
+    return this.http.delete<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements/"+reimbursementId,this.httpOptions);
   
   }
 
   addReimbursement(reimbursementModel: Reimbursement): Observable<Reimbursement>{
 
-    return this.http.post<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements/post", JSON.stringify(reimbursementModel),this.httpOptions);
+    return this.http.post<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements", JSON.stringify(reimbursementModel),this.httpOptions);
 
 
   }
