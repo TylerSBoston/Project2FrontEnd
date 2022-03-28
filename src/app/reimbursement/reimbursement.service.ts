@@ -25,7 +25,7 @@ fetchAllEmployees(): Observable<Employee[]>{
 }
 
 updateEmployee(employeeModel: Employee): Observable<Employee> {
-  return this.http.put<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/employees", JSON.stringify(employeeModel),this.httpOptions);
+  return this.http.put<Employee>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/employees/update", JSON.stringify(employeeModel),this.httpOptions);
  
 }
 
