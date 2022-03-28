@@ -49,6 +49,14 @@ fetchAEmployee(employeeId: number): Observable<Employee> {
 
   }
 
+  
+  imageReimbursement(reimbursementModel: Reimbursement): Observable<Reimbursement>{
+
+    return this.http.post<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements/save", JSON.stringify(reimbursementModel),this.httpOptions);
+
+
+  }
+
   updateReimbursement(reimbursementModel: Reimbursement): Observable<Reimbursement> {
     return this.http.put<Reimbursement>("http://ec2-3-14-134-131.us-east-2.compute.amazonaws.com:9999/api/reimbursements/update", JSON.stringify(reimbursementModel),this.httpOptions);
   
