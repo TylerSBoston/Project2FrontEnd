@@ -180,7 +180,7 @@ export class ListReimbursementComponent implements OnInit {
     
   // }
 
-  addReimbursement() {
+  addReimbursement(): void {
     this.reimbursementService.addReimbursement(this.newReimbursement).subscribe((response)=>{
       console.log(response);
       this.newReimbursement= {
