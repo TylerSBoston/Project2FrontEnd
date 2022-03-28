@@ -33,7 +33,8 @@ export class ListReimbursementComponent implements OnInit {
     details: "",            // Info about reimbursement, 
     currentComment: "",     // most recent comment usually about a update or approval/denail
     dateOfTransaction: "",
-    dateSubmitted: ""
+    dateSubmitted: "",
+    receipt: ""
   };
 
 
@@ -195,7 +196,8 @@ export class ListReimbursementComponent implements OnInit {
         details: this.newReimbursement.details,            // Info about reimbursement, 
         currentComment: this.newReimbursement.currentComment,     // most recent comment usually about a update or approval/denail
         dateOfTransaction: this.newReimbursement.dateOfTransaction,
-        dateSubmitted: this.newReimbursement.dateSubmitted  
+        dateSubmitted: this.newReimbursement.dateSubmitted,
+        receipt: this.newReimbursement.receipt 
     }
     this.loadReimbursements();
   })

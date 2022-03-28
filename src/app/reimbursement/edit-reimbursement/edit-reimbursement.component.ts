@@ -28,7 +28,8 @@ export class EditReimbursementComponent implements OnInit {
     statusId: 0,
     details: "",
     currentComment: "",
-    employee: ""
+    employee: "",
+    receipt: "",
 
   }
 
