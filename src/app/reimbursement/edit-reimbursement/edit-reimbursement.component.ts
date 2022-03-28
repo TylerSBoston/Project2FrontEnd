@@ -53,7 +53,7 @@ export class EditReimbursementComponent implements OnInit {
     });
 
 
-    this.newReimbursement = this.auth.retrieveReimbursement();}
+  }
 
 
     
@@ -74,7 +74,7 @@ export class EditReimbursementComponent implements OnInit {
     updateReimbursement(){
       this.reimbursementService.updateReimbursement(this.newReimbursement).subscribe((response)=>{
         
-        this.newReimbursement = this.auth.retrieveReimbursement();
+  
         
         
         
