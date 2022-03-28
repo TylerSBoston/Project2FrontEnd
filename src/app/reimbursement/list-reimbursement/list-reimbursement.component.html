@@ -65,6 +65,7 @@
               name="status"
               [(ngModel)]="newReimbursement.status">
             </div>
+
           </form>
         </div>
 
@@ -110,6 +111,13 @@
                     (click)="goToEditReimbursement(reimbursement.reimbursementId)">
                     <i class="material-icons">edit</i>
                   </button></td>
+
+                  <div>
+     
+                    <label>Photos: </label>
+                    <input type="file" name="image" accept="image/png, image/jpeg" />
+                     
+                    </div>
               <!-- <td><button S
                 type="button" 
                 class="btn btn-danger" 
