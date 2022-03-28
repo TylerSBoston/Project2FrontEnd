@@ -184,18 +184,18 @@ export class ListReimbursementComponent implements OnInit {
     this.reimbursementService.addReimbursement(this.newReimbursement).subscribe((response)=>{
       console.log(response);
       this.newReimbursement= {
-        reimbursementId: 0,
-        statusId: 0,
-        employeeId: 0,
-        employee: "",
-        status: "",
-        expenseType: "",
-        merchant: "",
-        amount: 0,
-        details: "",            // Info about reimbursement, 
-        currentComment: "",     // most recent comment usually about a update or approval/denail
-        dateOfTransaction: "",
-        dateSubmitted: ""  
+        reimbursementId: this.newReimbursement.reimbursementId,
+        statusId: this.newReimbursement.statusId,
+        employeeId: this.newReimbursement.employeeId,
+        employee: this.newReimbursement.employee,
+        status: this.newReimbursement.status,
+        expenseType: this.newReimbursement.expenseType,
+        merchant: this.newReimbursement.merchant,
+        amount: this.newReimbursement.amount,
+        details: this.newReimbursement.details,            // Info about reimbursement, 
+        currentComment: this.newReimbursement.currentComment,     // most recent comment usually about a update or approval/denail
+        dateOfTransaction: this.newReimbursement.dateOfTransaction,
+        dateSubmitted: this.newReimbursement.dateSubmitted  
     }
     this.loadReimbursements();
   })
