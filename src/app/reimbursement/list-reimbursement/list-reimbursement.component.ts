@@ -85,7 +85,7 @@ export class ListReimbursementComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.newReimbursement = this.auth.retrieveReimbursement();
+    //this.newReimbursement = this.auth.retrieveReimbursement();
   
 
     this.loadReimbursements();}
@@ -182,6 +182,7 @@ export class ListReimbursementComponent implements OnInit {
   // }
 
   addReimbursement(): void {
+    console.log(this.newReimbursement);
     this.reimbursementService.addReimbursement(this.newReimbursement).subscribe((response)=>{
       console.log(response);
       this.newReimbursement= {
